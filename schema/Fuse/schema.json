@@ -1,0 +1,87 @@
+{
+  "Ancillary": {},
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": ""
+  },
+  "DuplicateKeys": {},
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 1,
+  "Global": {},
+  "KeyMapper": {},
+  "ParquetCols": [],
+  "ReferenceFileNames": [],
+  "Suppressions": {},
+  "SourceCodeRegex": {
+    "SourceCode": ""
+  },
+  "CPMapper": {
+    "AppealID": "CampaignCode",
+    "PackageID": "PackageCode",
+    "Package": "PackageName",
+    "SegmentCode": "ListCode",
+    "List": "ListName",
+    "ListCostPerPiece": "ListCost",
+    "RolloutCostPerPiece": "PackageCPP",
+    "SourceCodeID": "SourceCode",
+    "M": "MonetaryCode",
+    "RF": "RecencyFrequency"
+  },
+  "PII_Columns": [],
+  "ReportMenu": {},
+  "decouple_costs": true,
+  "CPFilters": [],
+  "ServicePrincipalID": "3db3f432-4051-41f7-9d03-437464410845",
+  "DirectoryID": "7bdb86b6-118c-4868-b609-7a69efcbe883",
+  "SharePointUID": "reportingadmin@fusefundraising.com"
+}

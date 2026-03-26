@@ -1,0 +1,5 @@
+Throttle sftp file transfer with paramiko to avoid ssh connection issues:
+# https://stackoverflow.com/questions/62143431/decrease-paramiko-maximal-request-size
+
+Add linux packages across all nodes of a cluster:
+# https://forums.databricks.com/questions/15293/install-library-on-databricks-cluster.html

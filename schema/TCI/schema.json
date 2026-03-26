@@ -1,0 +1,242 @@
+{
+  "Ancillary": {
+    "TCISourceCodeDoc": {
+      "action": "keep",
+      "directory": "Reference"
+    }
+  },
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/TCI/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "",
+    "Function": "ignore_dupes"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "TCI_AppealList": {
+      "pandas": "object"
+    },
+    "TCI_DM": {
+      "pandas": "object"
+    },
+    "TCI_JoinSource": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 7,
+  "KeyMapper": {
+    "Constituent ID": "DonorID",
+    "Account ID": "DonorID",
+    "Close Date": "GiftDate",
+    "Gift Date": "GiftDate",
+    "Amount": "GiftAmount",
+    "Gift Amount": "GiftAmount",
+    "Gift Source": "GiftSource",
+    "Parent Campaign": "AppealID",
+    "Gift ID": "GiftID",
+    "Package List": "SourceCode",
+    "Parent Campaign (Appeal ID)": "AppealID",
+    "Appeal List": "AppealID"
+  },
+  "KeyMapper_saved": {
+    "Constituent ID": "DonorID",
+    "Account ID": "DonorID",
+    "Gift Amount": "GiftAmount",
+    "Amount": "GiftAmount",
+    "Gift Date": "GiftDate",
+    "Close Date": "GiftDate",
+    "Gift ID": "GiftID",
+    "Package List": "SourceCode",
+    "Parent Campaign (Appeal ID)": "AppealID"
+  },
+  "ParquetCols": [
+    "DonorID",
+    "Package"
+  ],
+  "ReferenceFileNames": [],
+  "Suppressions": {
+    "GiftSource": {
+      "Values": [
+        "Merkle",
+        "White Mail",
+        "Classy",
+        "Facebook",
+        "Internet",
+        "Onecause",
+        "Electronic Transfer",
+        "Pledge",
+        "Benevity",
+        "PayPal",
+        "Network for Good"
+      ],
+      "Function": "isin",
+      "Include": true
+    }
+  },
+  "SourceCodeRegex": {
+    "SourceCode": "^[A-Z0-9]{8,16}$"
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "SourceCodeID": "SourceCode",
+    "CampaignID": "CampaignCode",
+    "CostPerPiece": "PackageCPP",
+    "ListCostPerPiece": "ListCPP",
+    "Package": "PackageName",
+    "List": "ListName"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "_SourceCode",
+  "SCMapType": "conditional",
+  "SCMapper": {
+    "ListCode": {
+      "Position": [
+        6,
+        9
+      ],
+      "Map": {}
+    },
+    "PackageCode": {
+      "Position": 9,
+      "Map": {}
+    },
+    "RecencyCode": {
+      "Position": 6,
+      "Map": {
+        "A": "0-6 Months",
+        "B": "7-12 Months",
+        "C": "13-18 Months",
+        "D": "19-24 Months",
+        "E": "25 -36 Months",
+        "F": "37-48 Months",
+        "G": "49 - 60 Months",
+        "H": "61+ Months",
+        "X": "N/A"
+      }
+    },
+    "FrequencyCode": {
+      "Position": 7,
+      "Map": {
+        "S": "Single (one gift ever)",
+        "M": "Multi (give more then one gift)",
+        "X": "N/A"
+      }
+    },
+    "MonetaryCode": {
+      "Position": 8,
+      "Map": {
+        "A": "$0",
+        "B": "$0.01 -$4.99",
+        "C": "$5-$9.99",
+        "D": "$10-$14.99",
+        "E": "$15-$24.99",
+        "F": "$25-$49.99",
+        "G": "$50-$99.99",
+        "H": "$100-$249.99",
+        "J": "$250-$499.99",
+        "K": "$500-$999.99",
+        "L": "$1,000-4,999.99",
+        "M": "$5000+"
+      }
+    }
+  },
+  "PII_Columns": [
+    "Account Name"
+  ],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "TCI",
+        "process": "TCI"
+      },
+      "timeout": 10000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "TCI",
+        "dataset": "FileHealth",
+        "process": "TCI"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "TCI"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "TCI"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "ClientContact": {
+    "DataRequest": [
+      "peter.spring@nih.gov"
+    ]
+  },
+  "DataRequestFrequency": [
+    "Monthly"
+  ]
+}

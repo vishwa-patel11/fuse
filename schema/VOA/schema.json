@@ -1,0 +1,140 @@
+{
+  "Ancillary": {},
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/VOA/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "",
+    "Function": "dedupe_naive"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "JoinMonth": {
+      "pandas": "Int64"
+    },
+    "JoinYear": {
+      "pandas": "Int64"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "VOA_DirectMail": {
+      "pandas": "object"
+    },
+    "VOA_JoinDirectMail": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 7,
+  "KeyMapper": {
+    "Constituent ID": "DonorID",
+    "Gift Date": "GiftDate",
+    "Gift Amount": "GiftAmount"
+  },
+  "ParquetCols": [
+    "DonorID",
+    "Gf_AttrCat_1_01_Description",
+    "Package",
+    "Gf_Import_ID",
+    "Gift ID",
+    "Package Description",
+    "Fund",
+    "Appeal",
+    "Fund Description",
+    "Soft Credit Donor",
+    "Campaign",
+    "Gift Code",
+    "Appeal_1"
+  ],
+  "ReferenceFileNames": [],
+  "Suppressions": {},
+  "SourceCodeRegex": {
+    "SourceCode": ""
+  },
+  "SynthSC": {},
+  "CPMapper": {},
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "",
+  "SCMapType": "",
+  "SCMapper": {},
+  "PII_Columns": [ ],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "VOA",
+        "process": "VOA"
+      },
+      "timeout": 10000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "VOA",
+        "dataset": "FileHealth",
+        "process": "VOA"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "VOA"
+      },
+      "timeout": 10000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "ClientContact": {},
+  "DataRequestFrequency": []
+}

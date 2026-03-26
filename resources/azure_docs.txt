@@ -1,0 +1,30 @@
+Azure Logic App to copy files from SFTP server:
+https://docs.microsoft.com/en-us/azure/connectors/connectors-create-api-sftp
+
+Write to Blob storage:
+https://docs.microsoft.com/en-us/azure/connectors/connectors-create-api-azureblobstorage
+
+Why Azure Data Lake Gen2?
+https://www.bluegranite.com/blog/10-things-to-know-about-azure-data-lake-storage-gen2
+
+Azure Data Lake Gen2:
+https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction
+
+Create an Azure Storage Principal
+https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal
+https://docs.databricks.com/data/data-sources/azure/azure-datalake-gen2.html
+
+Create an Azure Function:
+https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-python
+
+Mount ADLS2 to Azure Function:
+https://docs.microsoft.com/en-us/azure/azure-functions/storage-considerations
+
+Creating an init script for a Databricks cluster:
+https://docs.databricks.com/clusters/init-scripts.html#
+
+Read ADLS2 with Power BI:
+https://docs.microsoft.com/en-us/power-query/connectors/datalakestorage
+
+Databricks Jobs API:
+https://docs.databricks.com/dev-tools/api/latest/jobs.html#run-now

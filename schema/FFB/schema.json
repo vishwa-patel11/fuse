@@ -1,0 +1,337 @@
+{
+  "Ancillary": {},
+  "Columns": [],
+  "DataMapper": {
+    "Personal Contributions": "4010",
+    "CRI Personal Contributions": "4010N",
+    "Personal Symposium Donation": "4011",
+    "Canisters": "4013",
+    "Visions Conference Donation": "4014",
+    "By Pass Trust Donations": "4015",
+    "Donor Advised Funds Donations": "4016",
+    "Tributes": "4020",
+    "Trustee": "4030",
+    "CRI Trustee": "4030N",
+    "Corporations": "4050",
+    "CRI Corporations Contributions": "4050N",
+    "Corp Conf Sponsorship": "4051",
+    "Corp Ad Journal-Conference": "4052",
+    "Corporate Program Ads-Symposium": "4053",
+    "Corporate Symposium Donation": "4054",
+    "CRI Corporate Symposium Donation": "4054N",
+    "Science Symposium Corporate Donations": "4055",
+    "CRI Science Symposium Corporate Donations": "4055N",
+    "Matching Gifts": "4059",
+    "Foundations": "4060",
+    "CRI Foundations Contributions": "4060N",
+    "Foundation Conf Sponsorship": "4061",
+    "Foundation Symposium Donation": "4062",
+    "CRI  Foundation Symposium Donation": "4062N",
+    "Rest Fdn-Gene Therapy": "4068",
+    "Clubs & Organizations": "4070",
+    "CRI Clubs-Organizations Contributions": "4070N",
+    "Rest Org-General Research": "4071",
+    "Rest Org-Usher Symdrome": "4072",
+    "Clubs & Organizations Science Symposium Sponsorship": "4073",
+    "CRI Clubs-Orgs Science Symposium Sponsorship": "4073N",
+    "FFB's Grant to CRI": "4074N",
+    "Charitable Gift Annuity": "4080",
+    "Pooled Income Fund for Operations": "4081",
+    "Charitable Remainder Unitrust for Operations": "4082",
+    "Charitable Remainder Annuity Trust for Operations": "4083",
+    "Direct Response - Renewals": "4090",
+    "Direct Response - Lapsed": "4091",
+    "Direct Response - Acquisition": "4092",
+    "Direct Response - High Tier": "4093",
+    "Direct Response - Digital": "4094",
+    "Direct Response - Matching Gifts": "4095",
+    "Donor Advised Funds - Direct Response": "4096",
+    "Special Events - Gross Revenue": "4100",
+    "Special Event - Sponsorships": "4102",
+    "Special Events - Live Auctions": "4103",
+    "Special Events - Silent Auctions": "4104",
+    "Donor Advised Funds - Events": "4116",
+    "Special Events - Matching Gifts": "4159",
+    "Wills & Bequests": "4200",
+    "Rest Wills & Bequests-General Research": "4201",
+    "Fed Camp-Other": "4320",
+    "Conference Registration": "4400",
+    "Exhibitor Fee-Conference": "4401",
+    "Symposium Registration": "4402",
+    "Symposium - Exhibitor Fee": "4403",
+    "Science Symposium Registration": "4404",
+    "CRI Science Symposium Registrations": "4404N",
+    "Program Service Fees-PHE": "4405",
+    "Program Service Fees-Registry": "4406",
+    "Program Service Fee - PCAC": "4407N",
+    "Other Sales": "4500",
+    "Other-U of PA Rental Income": "4520",
+    "Other-Rental Income": "4521",
+    "Publication Sales": "4532",
+    "Copying Reimbursement": "4533",
+    "Contract Revenue": "4534",
+    "Other - IOVS Grant": "4550",
+    "Affiliate Lockbox Receipts": "4600",
+    "Government Grant - Federal": "4601N",
+    "LDDS Metromedia Name & Logo Royalty": "4701",
+    "Research Patent Royalty": "4702",
+    "Contributed Goods and Services": "4800"
+  },
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/FFB/Raw"
+  },
+  "DuplicateKeys": {},
+  "Encoding": null,
+  "Exclusions": [
+    "FFB Fuse Monthly Cash Flow 12.15.21.xlsx",
+    "FFB Fuse Monthly Cash Flow 9.15.21.xlsx",
+    "Mindset1015211_Original.csv"
+  ],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FFB_Facebook": {
+      "pandas": "object"
+    },
+    "FFB_GiftClass2": {
+      "pandas": "object"
+    },
+    "FFB_JoinGroup": {
+      "pandas": "object"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "JoinYear": {
+      "pandas": "Int64"
+    },
+    "JoinMonth": {
+      "pandas": "Int64"
+    },
+    "FFB_Channel": {
+      "pandas": "object"
+    },
+    "FFB_JoinChannel": {
+      "pandas": "object"
+    },
+    "FFB_ChannelBehavior": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "Purpose": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 7,
+  "KeyMapper": {
+    "MillID": "DonorID",
+    "giftAmount": "GiftAmount",
+    "GiftDate": "GiftDate",
+    "CamgaignCode": "CampaignCode",
+    "giftclass2": "PackageCode",
+    "giftclass1": "ListCode"
+  },
+  "ParquetCols": [
+    "Source",
+    "CampaignCode",
+    "Purpose"
+  ],
+  "ReferenceFileNames": [],
+  "Suppressions": {
+    "Multi": {
+      "Values": {
+        "Purpose": [
+          "4006",
+          "4015",
+          "4090",
+          "4091",
+          "4092",
+          "4093",
+          "4094",
+          "4095",
+          "4096"
+        ],
+        "PackageCode": [
+          "WEBA50",
+          "WEBCHO",
+          "WEBOBI"
+        ]
+      },
+      "Function": "isin_or",
+      "Include": true
+    }
+  },
+  "SourceCodeRegex": {
+    "SourceCode": "^[A-Z0-9_]{15,17}$"
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "SourceCodeID": "PackageCode",
+    "Keycode": "SourceCode",
+    "Class2Code": "PackageCode",
+    "Class1Code": "ListCode",
+    "Package": "PackageName",
+    "CampaignID": "CampaignCode",
+    "CostPerPiece": "PackageCPP",
+    "ListCostPerPiece": "ListCPP",
+    "List": "ListName"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "ListCode",
+  "SCMapType": "override",
+  "SCMapper": {
+    "RecencyCode": {
+      "Position": 1,
+      "Map": {
+        "2": "0-6 Month",
+        "3": "7-12 Month",
+        "4": "13-18 Month",
+        "5": "19-24 Month",
+        "6": "25-48 Month",
+        "7": "49-60 Month",
+        "8": "61+ Month",
+        "9": "No Gift"
+      }
+    },
+    "MonetaryCode": {
+      "Position": 2,
+      "Map": {
+        "1": "$1,000+",
+        "2": "$500-999",
+        "3": "$250-499",
+        "4": "$100-249",
+        "5": "$50-99",
+        "6": "$25-49",
+        "7": "$10-24",
+        "8": "$1-9",
+        "9": "$0.01-0.99"
+      }
+    }
+  },
+  "RFM_Override": {
+    "681": "$1000+ donation over 25-36 mos. ago",
+    "682": "$500 - $999.99 donation over 25-36 mos. ago",
+    "683": "$250 - $499.99  donation over 25-36 mos. ago",
+    "684": "$100 - $249.99 donation over 25-36 mos. ago",
+    "685": "$50 - $99.99 donation over 25-36 mos. ago",
+    "686": "$25 - $49.99 donation over 25-36 mos. ago",
+    "687": "$10 - $24.99 donation over 25-36 mos. ago",
+    "688": "$1 - $9.99 donation over 25-36 mos. ago",
+    "689": "$0.01 to $.99 donation over 25-36 mos ago",
+    "691": "$1000+ donation over 37-48 mos. ago",
+    "692": "$500 - $999.99 donation over 37-48 mos. ago",
+    "693": "$250 - $499.99 donation over 37-48 mos. ago",
+    "694": "$100 - $249.99 donation over 37-48 mos. ago",
+    "695": "$50 - $99.99 donation over 37-48 mos. ago",
+    "696": "$25 - $49.99 donation over 37-48 mos. ago",
+    "697": "$10 - $24.99 donation over 37-48 mos. ago",
+    "698": "$1 - $9.99 donation over 37-48 mos. ago",
+    "699": "$.01 - $.99 donation over 37-48 mos. ago"
+  },
+  "PII_Columns": [],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "FFB",
+        "process": "FFB"
+      },
+      "timeout": 10000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "FFB"
+      },
+      "timeout": 1000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "FFB",
+        "dataset": "FileHealth",
+        "process": "FFB"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "FFB"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "FFB"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "clientMap": {
+    "YearPosition": 0,
+    "Method": "starts_ends",
+    "ExtractionField": "CampaignName",
+    "CampaignTypes": {
+      "Appeals": ["Appeal"],
+      "Acquisitions": ["Acquisition"]
+    }
+  },
+  "ClientContact": {
+    "DataRequest": [
+      "jcollins@fightingblindness.org",
+      "mcrimmins@fightingblindness.org",
+      "tclark@fightingblindness.org",
+      "madelinert@fusefundraising.com"
+    ]
+  },
+  "DataRequestFrequency": [
+    "15"
+  ]
+}

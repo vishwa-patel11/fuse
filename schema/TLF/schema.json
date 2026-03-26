@@ -1,0 +1,176 @@
+{
+  "Ancillary": {},
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/TLF/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "",
+    "Function": "dedupe_naive"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "TLF_CampaignName": {
+      "pandas": "object"
+    },
+    "TLF_DAF": {
+      "pandas": "object"
+    },
+    "TLF_IRA": {
+      "pandas": "object"
+    },
+    "TLF_Source": {
+      "pandas": "object"
+    },
+    "TLF_JoinCampaignName": {
+      "pandas": "object"
+    },
+    "TLF_JoinSource": {
+      "pandas": "object"
+    },
+    "TLF_ReportChannel": {
+      "pandas": "object"
+    },
+    "TLF_JoinReportChannel": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 7,
+  "KeyMapper": {
+    "ï»¿Gift Id": "GiftID",
+    "Gift Id": "GiftID",
+    "Converted Amount": "GiftAmount",
+    "Gift Date": "GiftDate",
+    "Donor Advised Fund Gift?": "DAF",
+    "IRA Gift?": "IRA",
+    "Contact Id": "DonorID"
+  },
+  "ParquetCols": [
+    "DonorID",
+    "UTM Content"
+  ],
+  "ReferenceFileNames": [],
+  "Suppressions": {},
+  "SourceCodeRegex": {
+    "SourceCode": "^[A-Z0-9]{9,10}$"
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "Panel Code": "PackageCode",
+    "Appeal Code": "CampaignCode",
+    "List/RFM Code": "ListCode"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "",
+  "SCMapType": "",
+  "SCMapper": {},
+  "PII_Columns": [
+    "Tribute Description"
+  ],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "TLF",
+        "process": "TLF"
+      },
+      "timeout": 10000
+    },
+    "SourceCodeProcessing": {
+      "notebook": "./Fuse/UpdateSourceCodeTable",
+      "args": {
+        "client": "TLF"
+      },
+      "timeout": 1000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "TLF"
+      },
+      "timeout": 1000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "TLF",
+        "dataset": "FileHealth",
+        "process": "TLF"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "TLF"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "TLF"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": false,
+  "CPFilters": [],
+  "ClientContact": {
+    "DataRequest": [
+      "pcasalino@lustgarten.org"
+    ]
+  },
+  "DataRequestFrequency": []
+}

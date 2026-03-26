@@ -1,0 +1,138 @@
+{
+  "Ancillary": {},
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {},
+  "DuplicateKeys": {
+    "Column": "",
+    "Function": "dedupe_naive"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "JoinMonth": {
+      "pandas": "Int64"
+    },
+    "JoinFiscalYear": {
+      "pandas": "Int64"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "U4U_CampaignID": {
+      "pandas": "object"
+    },
+    "U4U_JoinCampaignID": {
+      "pandas": "object"
+    },
+    "U4U_DirectMail": {
+      "pandas": "object"
+    },
+    "U4U_JoinDirectMail": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 1,
+  "KeyMapper": {
+    "Constituent ID": "DonorID",
+    "Gift Date": "GiftDate",
+    "Gift Amount": "GiftAmount"
+  },
+  "ParquetCols": ["Gift ID"],
+  "ReferenceFileNames": [],
+  "Suppressions": {},
+  "SourceCodeRegex": {
+    "SourceCode": ""
+  },
+  "SynthSC": {},
+  "CPMapper": {},
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "",
+  "SCMapType": "",
+  "SCMapper": {},
+  "PII_Columns": [ ],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "U4U",
+        "process": "U4U"
+      },
+      "timeout": 10000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "U4U",
+        "dataset": "FileHealth",
+        "process": "U4U"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "U4U"
+      },
+      "timeout": 10000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "ClientContact": {
+    "DataRequest": [
+      "jboynton@usaforunfpa.org",
+      "jgeers@usaforunfpa.org",
+      "ifordyce@usaforunfpa.org",
+      "dkirkegaard@usaforunfpa.org",
+      "madelinert@fusefundraising.com"
+    ]
+  },
+  "DataRequestFrequency": ["20"]
+}

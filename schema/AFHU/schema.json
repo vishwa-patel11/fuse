@@ -1,0 +1,268 @@
+{
+  "Ancillary": {},
+  "ClientValues": {},
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/AFHU/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "GiftID",
+    "Function": "dedupe"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "AFHU_JoinAppeal": {
+      "pandas": "object"
+    },
+    "AppealCategory": {
+      "pandas": "object"
+    },
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinFiscalYear": {
+      "pandas": "Int64"
+    },
+    "AFHU_JoinChannel": {
+      "pandas": "object"
+    },
+    "AFHU_Channel": {
+      "pandas": "object"
+    },
+    "AFHU_ChannelBehavior": {
+      "pandas": "object"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "JoinMonth": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 10,
+  "KeyMapper": {
+    "Appeal Category": "AppealCategory",
+    "Appeal Description": "AppealDescription",
+    "Donor ID": "DonorID",
+    "Gift Amount": "GiftAmount",
+    "Gift Date": "GiftDate",
+    "Keycode (Source Code)": "SourceCode",
+    "Package ID": "PackageID",
+    "ï»¿Gift ID": "GiftID",
+    "Gift ID": "GiftID"
+  },
+  "ParquetCols": [
+    "GiftID",
+    "PackageID"
+  ],
+  "ReferenceFileNames": [],
+  "Suppressions": {
+    "AppealCategory": {
+      "Values": [
+        "Direct Transmission",
+        "Estate",
+        "Event"
+      ],
+      "Function": "isin",
+      "Include": false
+    },
+    "AppealDescription": {
+      "Values": [
+        "2019 Board Giving National Unrestricted Southeast",
+        "2022 Board Giving National Unrestricted Midwest",
+        "2022 Board Giving National Unrestricted Western",
+        "2022 Board Giving National Unrestricted Mid-Atlantic",
+        "2022 Board Giving National Unrestricted Northeast",
+        "2022 Board Giving National Unrestricted Southeast"
+      ],
+      "Function": "isin",
+      "Include": false
+    }
+  },
+  "SourceCodeRegex": {
+    "SourceCode": "^[A-Z][0-9]{4}[A-Z0-9]{4}[0-9]{4}$"
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "SourceCodeID": "SourceCode",
+    "Package Code": "PackageCode",
+    "Package": "PackageName",
+    "CostPerPiece": "PackageCPP",
+    "ListCostPerPiece": "ListCPP",
+    "List": "ListName",
+    "RFM": "RFMCode"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "SourceCode",
+  "SCMapType": "header",
+  "SCMapper": {
+    "RecencyCode": {
+      "Position": 8,
+      "Map": {
+        "0": "0-12 months",
+        "1": "13-24 months",
+        "2": "25-36 months",
+        "3": "36+ months",
+        "X": "non-donor"
+      }
+    },
+    "FrequencyCode": {
+      "Position": 7,
+      "Map": {
+        "1": "1 gift",
+        "2": "2+ gifts",
+        "X": "0 gifts"
+      }
+    },
+    "MonetaryCode": {
+      "Position": 6,
+      "Map": {
+        "A": "$0 - $4.99",
+        "B": "$5 - $9.99",
+        "C": "$10 - $24.99",
+        "D": "$25 - $49.99",
+        "E": "$50 - $99.99",
+        "F": "$100 - $249.99",
+        "G": "$250 - $499.99",
+        "H": "$500 - $999.99",
+        "I": "$1,000+",
+        "X": "non-donor"
+      }
+    },
+    "PackageCode": {
+      "Position": [
+        10,
+        13
+      ],
+      "Map": {
+        "3942": "ALUM-FY22-Alumni Igniting Impact Mailing",
+        "3947": "ALUM-FY22-February Alumni Emails",
+        "3944": "ALUM-FY22-July Alumni Mailing",
+        "3948": "ALUM-FY22-Spring Igniting Impact Alumni Emails",
+        "1423": "MAIL-FY22-January Renewal",
+        "1425": "MAIL-FY22-March Alumni",
+        "1424": "MAIL-FY22-March Appeal",
+        "1426": "MAIL-FY22-April Renewal 3",
+        "1427": "MAIL-FY22-Spring Acquisition",
+        "1429": "MAIL-FY22-Email Welcome Series",
+        "1430": "MAIL-FY22-July Appeal",
+        "1431": "Mail-FY23-October Core Appeal",
+        "1435": "MAIL-FY23 Website Initiatives",
+        "1436": "MAIL-FY23-Core Eappeals",
+        "1437": "Mail-FY23-November Acquisition",
+        "1438": "Mail-FY23-November Core Appeal",
+        "3946": "ALUM-FY23-November Alumni Mailing",
+        "1439": "Mail-FY23-December Core Appeal",
+        "1440": "Mail-FY23-January Renewal Mailing",
+        "1441": "Mail-FY23-March Core Appeal Mailing",
+        "1442": "Mail-FY23-April Core Appeal",
+        "1443": "Mail-FY23-April Acquisition",
+        "1444": "Mail-FY23-July Core Appeal"
+      }
+    }
+  },
+  "PII_Columns": [],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "AFHU",
+        "process": "AFHU"
+      },
+      "timeout": 10000
+    },
+    "SourceCodeProcessing": {
+      "notebook": "./Fuse/UpdateSourceCodeTable",
+      "args": {
+        "client": "AFHU"
+      },
+      "timeout": 1000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "AFHU"
+      },
+      "timeout": 1000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "AFHU",
+        "dataset": "FileHealth",
+        "process": "AFHU"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "AFHU"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "AFHU"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "ClientContact": {
+    "DataRequest": [
+      "LStumboli@afhu.org",
+      "LLaitman@afhu.org",
+      "MDockery@afhu.org",
+      "tdixon@onlinecomputers.com"
+    ]
+  },
+  "DataRequestFrequency": "Monthly"
+}

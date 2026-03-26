@@ -1,0 +1,280 @@
+{
+  "Ancillary": {
+    "Appeal": {
+      "action": "keep",
+      "directory": "Reference"
+    }
+  },
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/CHOA/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "GiftID",
+    "Function": "dedupe"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [
+    "File 1 Transaction History-Append File 1 of 3.CSV",
+    "File 1 Transaction History-Append File 2 of 3.CSV",
+    "File 1 Transaction History-Append File 3 of 3.CSV",
+    "File 2 Promotional History 1 of 2.CSV",
+    "File 2 Promotional History 2 of 2.CSV",
+    "File 3 Source Code Document.xlsx"
+  ],
+  "FileHealth": {
+    "AppealCategory": {
+      "pandas": "object"
+    },
+    "Legacy Giving Vehicle": {
+    "pandas": "object"
+    },
+    "CHOA_Channel": {
+      "pandas": "object"
+    },
+    "CHOA_JoinChannel": {
+      "pandas": "object"
+    },
+    "CHOA_ChannelBehavior": {
+      "pandas": "object"
+    },
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinFiscalYear": {
+      "pandas": "Int64"
+    },
+    "JoinMonth": {
+      "pandas": "object"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "OnlineDisbursements": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 1,
+  "KeyMapper": {
+    "Gf_CnBio_ID": "DonorID",
+    "Gf_Gift_ID": "GiftID",
+    "Gf_Date": "GiftDate",
+    "Gf_Amount": "GiftAmount",
+    "Gf_Apls_1_01_Appeal_ID": "AppealID",
+    "Gf_Apls_1_01_Ap_Appeal_category": "AppealCategory",
+    "Gf_Apls_1_01_Description": "AppealDescription",
+    "Appeal ID": "AppealID",
+    "Appeal Category": "AppealCategory2",
+    "Gf_Fnds_1_01_Fn_Description": "GF_FNDS_1_01_FN_DESCRIPTION",
+    "Gf_Fnds_1_01_Fn_Fund_category": "GF_FNDS_1_01_FN_FUND_CATEGORY",
+    "Gf_Fnds_1_01_Fund_ID": "GF_FNDS_1_01_FUND_ID",
+    "Gf_Pks_1_01_Package_ID": "PackageID"
+  },
+  "ParquetCols": [
+    "RFM Code",
+    "GF_FNDS_1_01_FUND_ID"
+  ],
+  "ReferenceFileNames": [],
+  "Special": {
+    "IgnoreDates": true
+  },
+  "Suppressions": {
+    "AppealCategory": {
+      "Values": [
+        "50022-Online",
+        "50022-Direct Mail"
+      ],
+      "Function": "isin",
+      "Include": true
+    },
+    "Gf_SCMGFlag": {
+      "Values": [
+        "Soft Credit Recipient"
+      ],
+      "Function": "isin",
+      "Include": false
+    }
+  },
+  "SourceCodeRegex": {
+    "SourceCode": "^[A-Z]{2}[A-Z0-9]{9,12}$"
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "SourceCodeID": "SourceCode",
+    "QTY": "Quantity",
+    "Appeal Code": "CampaignCode",
+    "Appeal": "CampaignCode",
+    "Appeal ID": "CampaignCode",
+    "Package": "PackageCode",
+    "Campaign": "CampaignName",
+    "Campaign ": "CampaignName",
+    "Mail Date": "MailDate",
+    "Cost Per piece": "PackageCPP",
+    "ListCostPerPiece": "ListCPP",
+    "Package Description": "PackageName",
+    "List Segment": "ListCode",
+    "List Name": "ListName",
+    "List": "ListCode",
+    "RFM": "RFMCode"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "_SourceCode",
+  "SCMapType": "header",
+  "SCMapper": {
+    "RecencyCode": {
+      "Position": 12,
+      "Map": {
+        "X": "No Recency",
+        "0": "0-3 mos",
+        "1": "4-6 mos",
+        "2": "7-9 mos",
+        "3": "10-12 mos",
+        "4": "13-18 mos",
+        "5": "19-24 mos",
+        "6": "25-36 mos",
+        "7": "37-48 mos",
+        "8": "49-60 mos",
+        "9": "61+ mos"
+      }
+    },
+    "FrequencyCode": {
+      "Position": 13,
+      "Map": {
+        "X": "No Gifts",
+        "0": "No Gift",
+        "1": "1 gift",
+        "2": "2 gifts",
+        "3": "3 gifts",
+        "4": "4 gifts",
+        "5": "5 gifts",
+        "6": "6 gifts",
+        "7": "7 gifts",
+        "8": "8 gifts",
+        "9": "9+ gifts"
+      }
+    },
+    "MonetaryCode": {
+      "Position": 14,
+      "Map": {
+        "0": "under $5",
+        "1": "$5-$9",
+        "2": "$10-$14",
+        "3": "$15-$24",
+        "4": "$25-$49",
+        "5": "$50-$99",
+        "6": "$100-$249",
+        "7": "$250-$499",
+        "8": "$500-$999",
+        "9": "$1000+"
+      }
+    }
+  },
+  "PII_Columns": [],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "CHOA",
+        "process": "CHOA"
+      },
+      "timeout": 10000
+    },
+    "SourceCodeProcessing": {
+      "notebook": "./Fuse/UpdateSourceCodeTable",
+      "args": {
+        "client": "CHOA"
+      },
+      "timeout": 1000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "CHOA"
+      },
+      "timeout": 1000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "CHOA",
+        "dataset": "FileHealth",
+        "process": "CHOA"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "CHOA"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "CHOA"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "ClientContact": {
+    "DataRequest": [
+      "Rhonda.Sherrod@choa.org"
+    ]
+  },
+  "clientMap": {
+    "YearPosition": 4,
+    "Method": "starts_ends",
+    "CampaignTypes": {
+      "Appeals": [""],            
+      "Acquisitions": [["DM"], ["A"]]        
+      }
+    },
+  "DataRequestFrequency": []
+}

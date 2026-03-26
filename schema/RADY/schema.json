@@ -1,0 +1,153 @@
+{
+  "Ancillary": {},
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "LegacyDirectories": [],
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/RADY/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "",
+    "Function": "dedupe_all"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "RADY_Channel": {
+      "pandas": "object"
+    },
+    "RADY_PaymentMethod": {
+      "pandas": "object"
+    },
+    "RADY_Online": {
+      "pandas": "object"
+    },
+    "RADY_GiftType": {
+      "pandas": "object"
+    },
+    "RADY_GiftSubtype": {
+      "pandas": "object"
+    },
+    "RADY_JoinChannel": {
+      "pandas": "object"
+    },
+    "RADY_ChannelBehavior": {
+      "pandas": "object"
+    },
+    "RADY_Sustainer": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 7,
+  "KeyMapper": {
+    "Gift ID": "GiftID",
+    "Gift Date": "GiftDate",
+    "Gift Amount": "GiftAmount",
+    "Constituent ID": "DonorID",
+    "ï»¿Appeal ID": "AppealID",
+    "Appeal ID": "AppealID",
+    "Appeal": "CampaignCode",
+    "Package": "PackageCode"
+  },
+  "ParquetCols": [
+    "DonorID",
+    "GiftID",
+    "Reference - for review only_ delete before upload",
+    "Gf_AttrCat_1_01_Description",
+    "Sub-Source"
+  ],
+  "ReferenceFileNames": [],
+  "Suppressions": {},
+  "SourceCodeRegex": {
+    "SourceCode": ""
+  },
+  "CPMapper": {},
+  "PII_Columns": [],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "RADY",
+        "process": "RADY"
+      },
+      "timeout": 10000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "RADY",
+        "dataset": "FileHealth",
+        "process": "RADY"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "RADY"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "RADY"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "ClientContact": {
+    "DataRequest": [
+      "SMcMorrow@rchsd.org"
+    ]
+  },
+  "DataRequestFrequency": []
+}

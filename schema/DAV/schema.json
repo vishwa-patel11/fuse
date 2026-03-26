@@ -1,0 +1,296 @@
+{
+  "FileHealthSpark": {
+    "Channel": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(50)",
+      "sql": "VARCHAR(50)"
+    },
+    "ChannelBehavior": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(50)",
+      "sql": "VARCHAR(50)"
+    },
+    "DonorID": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(50)",
+      "sql": "VARCHAR(50)"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]",
+      "spark": "DateType()",
+      "sqlalchemy": "sqlalchemy.Date",
+      "sql": "DATE"
+    },
+    "FHGroup": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(20)",
+      "sql": "VARCHAR(20)"
+    },
+    "FHGroupDetail": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(50)",
+      "sql": "VARCHAR(50)"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(50)",
+      "sql": "VARCHAR(50)"
+    },
+    "JoinLevel": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(20)",
+      "sql": "VARCHAR(20)"
+    },
+    "GiftAmount": {
+      "pandas": "float64",
+      "spark": "DoubleType()",
+      "sqlalchemy": "sqlalchemy.Float",
+      "sql": "FLOAT"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]",
+      "spark": "DateType()",
+      "sqlalchemy": "sqlalchemy.Date",
+      "sql": "DATE"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64",
+      "spark": "IntegerType()",
+      "sqlalchemy": "sqlalchemy.Integer",
+      "sql": "INTEGER"
+    },
+    "GiftHistory": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(50)",
+      "sql": "VARCHAR(50)"
+    },
+    "GiftID": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(15)",
+      "sql": "VARCHAR(25)"
+    },
+    "JoinChannel": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(50)",
+      "sql": "VARCHAR(50)"
+    },
+    "JoinGiftType": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(50)",
+      "sql": "VARCHAR(50)"
+    },
+    "JoinYear": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(15)",
+      "sql": "VARCHAR(25)"
+    },
+    "JoinMonth": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(15)",
+      "sql": "VARCHAR(25)"
+    },
+    "Period": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(15)",
+      "sql": "VARCHAR(15)"
+    },
+    "ReportPeriod": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(30)",
+      "sql": "VARCHAR(30)"
+    },
+    "TypesofGifts": {
+      "pandas": "object",
+      "spark": "StringType()",
+      "sqlalchemy": "sqlalchemy.types.NVARCHAR(50)",
+      "sql": "VARCHAR(50)"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]",
+      "spark": "DateType()",
+      "sqlalchemy": "sqlalchemy.Date",
+      "sql": "DATE"
+    }
+  },
+  "firstMonthFiscalYear": 1,
+  "Suppressions": {
+    "AppealName": {
+      "Values": [
+        "2021 Aug NSF Mailing",
+        "2015 Event",
+        "Google",
+        "2014 Event",
+        "2018 Memorial",
+        "2022 NSF Monthly Mailing",
+        "Endowment Contributions",
+        "Personal Philanthropic Programs",
+        "Peer-to-Peer",
+        "Bequest Contributions",
+        "Capital Campaign",
+        "2014 Philanthropic",
+        "2021 NSF Monthly Mailing",
+        "Foundations/Trusts",
+        "NSF Annual Appeal",
+        "Event Donor",
+        "2011 B2B",
+        "Event Sponsor",
+        "2015 Designated",
+        "Convention Sponsorship",
+        "Harleys Heroes",
+        "2019 Event",
+        "2022 Turnkey",
+        "2015 Philanthropic",
+        "2016 Event",
+        "NSF Lapsed Donor",
+        "Vehicle Donations",
+        "2021 Peer-to-Peer",
+        "Spare Change",
+        "2018 Event",
+        "Event Registrant",
+        "Grassroots",
+        "2022 Bequest",
+        "2022 Spare Change",
+        "2022 Personal Philanthropic Program",
+        "Membership Statements",
+        "Gifts Table: Inbound Channel=CARS",
+        "Rewards Program",
+        "2017 Event",
+        "Voluntary Services",
+        "2022 Corporate",
+        "National Cabinet",
+        "Cause Marketing",
+        "MEMLF Digital Contributions Appeal",
+        "2022 Peer-to-Peer",
+        "Corporate",
+        "Winter Sports Clinic",
+        "2022 Rewards Program",
+        "2023 Bequest",
+        "2023 Corporate",
+        "2023 CST Turnkey",
+        "2023 Patriot Boot Camp",
+        "2022 Patriot Boot Camp",
+        "2023 Peer-to-Peer",
+        "2023 Personal Philanthropic Programs",
+        "2023 Rewards",
+        "2023 Turnkey",
+        "2023 Field of Flags Across America",
+        "2023 NSF Monthly Mailing",
+        "2023 NSF Digital",
+        "NSF Engaging Networks",
+        "2024 Bequest",
+        "2024 Corporate",
+        "2024 CST Turnkey",
+        "2024 Patriot Boot Camp",
+        "2024 Peer-to-Peer",
+        "2024 Personal Philanthropic Programs",
+        "2024 Rewards Program",
+        "2024 Turnkey",
+        "2024 Field of Flags Across America",
+        "2024 NSF Monthly Mailing",
+        "2024 NSF Digital"
+      ],
+      "Function": "isin",
+      "Include": false
+    },
+    "DesignationLookupID": {
+      "Values": {
+        "2018": [
+          "DAV Restricted Contribution Disaster",
+          "DAV Restricted Contribution Homeless Standdown",
+          "DAV Restricted Contribution Just B Kids",
+          "DAV Restricted Contribution Winter Sports Clinic 2020",
+          "DAV Restricted Contribution Winter Sports Clinic 2021",
+          "DAV Restricted Corporate Contributions restricted for 5K Atlanta 2018",
+          "DAV Restricted Corporate Contributions restricted for 5K Boston 2017",
+          "DAV Restricted Corporate Contributions restricted for 5K Boston 2018",
+          "DAV Restricted Corporate Contributions restricted for 5K Cincinnati 2017",
+          "DAV Restricted Corporate Contributions restricted for 5K Cincinnati 2018",
+          "DAV Restricted Corporate Contributions restricted for 5K Kemah 2018",
+          "DAV Restricted Corporate Contributions restricted for 5K Newport News 2018",
+          "DAV Restricted Corporate Contributions restricted for 5K San Antonio 2017",
+          "DAV Restricted Corporate Contributions restricted for 5K Tulsa 2018",
+          "DAV Restricted Corporate Convention 2017 Sponsors",
+          "DAV Restricted Corporate Convention 2018 Sponsors",
+          "DAV Restricted Corporate Donations for WSC 2018",
+          "DAV Restricted Corporate Donations for WSC 2019",
+          "DAV Restricted Corporate Sponsors for TEE 2018",
+          "DAV Restricted Corporate Sponsors for TEE 2019",
+          "DAV Restricted Corporate Sponsors for WSC 2018",
+          "DAV Restricted Corporate Sponsors for WSC 2019",
+          "DAV Restricted Corporate Sponsorships restricted for 5K Atlanta 2017",
+          "DAV Restricted Corporate Sponsorships restricted for 5K Atlanta 2018",
+          "DAV Restricted Corporate Sponsorships restricted for 5K Boston 2017",
+          "DAV Restricted Corporate Sponsorships restricted for 5K Boston 2018",
+          "DAV Restricted Corporate Sponsorships restricted for 5K Cincinnati 2017",
+          "DAV Restricted Corporate Sponsorships restricted for 5K Cincinnati 2018",
+          "DAV Restricted Corporate Sponsorships restricted for 5K Kemah 2018",
+          "DAV Restricted Corporate Sponsorships restricted for 5K Newport News 2018",
+          "DAV Restricted Corporate Sponsorships restricted for 5K San Antonio 2017",
+          "DAV Restricted Corporate Sponsorships restricted for 5K Tulsa 2018",
+          "DAV Restricted Registration restricted for 5K Atlanta 2018",
+          "DAV Restricted Registration restricted for 5K Boston 2018",
+          "DAV Restricted Registration restricted for 5K Cincinnati 2018",
+          "DAV Restricted Registration restricted for 5K Kemah 2018",
+          "DAV Restricted Registration restricted for 5K Newport News 2018",
+          "DAV Restricted Registration restricted for 5K Tulsa 2018",
+          "DAV Royalty Income from Corporate Partnerships",
+          "DAV Unrestricted Bequests",
+          "DAV Unrestricted Contributions - Corporate",
+          "DAV Unrestricted Contributions - PPP",
+          "DAV Unrestricted Contributions - Turnkey",
+          "DAV Unrestricted Stock Gifts"
+        ],
+        "2020": [
+          "DAV Registration 5K 2020",
+          "DAV Registration Golf Clinic 2020",
+          "DAV Restricted Contribution 5K 2020",
+          "DAV Restricted Contribution Centennial",
+          "DAV Restricted Contribution DAV Night Out",
+          "DAV Restricted Contribution Disaster",
+          "DAV Restricted Contribution Golf Clinic 2020",
+          "DAV Restricted Contribution Just B Kids",
+          "DAV Restricted Contribution Winter Sports Clinic 2020",
+          "DAV Restricted Contribution Winter Sports Clinic 2021",
+          "DAV Restricted Registration restricted for 5K Tulsa 2017",
+          "DAV Royalty Income from Corporate Partnerships",
+          "DAV Unrestricted Bequests",
+          "DAV Unrestricted Contributions - Corporate",
+          "DAV Unrestricted Contributions - PPP",
+          "DAV Unrestricted Contributions - Turnkey",
+          "DAV Unrestricted Contributions Participant Rasied 5K 2020",
+          "DAV Unrestricted New Initiatives - 2020 DIY",
+          "DAV Unrestricted Stock Gifts"
+        ]
+      },
+      "Function": "isin",
+      "Include": false
+    },
+    "MarketingEffortName": {
+      "Values": [
+        "2021 Digital Cause Marketing"
+      ],
+      "Function": "isin",
+      "Include": false
+    }
+  },
+  "SFTP_DETAILS": {
+    "address": "66.161.140.167",
+    "port": 22,
+    "username": "DMI"
+  }
+}

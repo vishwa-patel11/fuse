@@ -1,0 +1,191 @@
+{
+  "Ancillary": {
+    "Account": {
+      "action": "remove",
+      "directory": ""
+    }
+  },
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/CARE/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "",
+    "Function": "dedupe_all"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 7,
+  "KeyMapper": {
+    "Record Amount": "GiftAmount",
+    "Payment Amount": "GiftAmount",
+    "Close Date": "GiftDate",
+    "Payment Date": "GiftDate",
+    "Source Code": "SourceCode",
+    "Campaign: Source Code": "SourceCode",
+    "Primary Campaign Source: Campaign Name": "CampaignName",
+    "18 Digit Opportunity ID": "DonorID"
+  },
+  "ParquetCols": [],
+  "ReferenceFileNames": [],
+  "Suppressions": {},
+  "SourceCodeRegex": {
+    "SourceCode": "^[A-Z0-9]{6,12}$"
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "Package": "PackageName",
+    "CostPerPiece": "PackageCPP",
+    "OutboundSourceCode": "SourceCode",
+    "CampaignSourceCode": "CampaignCode",
+    "Panel Name": "PackageName",
+    "Panel Code": "PackageCode",
+    "Panel CPP": "PackageCPP",
+    "Account Name: Account #": "CampaignCode",
+    "Appeal Name": "CampaignName"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "SourceCode",
+  "SCMapType": "header",
+  "SCMapper": {
+    "PackageCode": {
+      "Position": 11,
+      "Map": {}
+    },
+    "RecencyCode": {
+      "Position": 8,
+      "Map": {
+        "1": "0-6 months",
+        "2": "7- 12 months",
+        "3": "13-18 months",
+        "4": "19-24 months",
+        "5": "25+ months",
+        "C": "No DM Gifts"
+      }
+    },
+    "FrequencyCode": {
+      "Position": 9,
+      "Map": {
+        "0": "0 lifetime gifts",
+        "1": "1 lifetime gifts",
+        "2": "2 lifetime gifts",
+        "3": "3+ lifetime gifts"
+      }
+    },
+    "MonetaryCode": {
+      "Position": 10,
+      "Map": {
+        "0": "$0.01-$999.99",
+        "1": "$1,000-$1,499.99",
+        "2": "$1,500-$2,499.99",
+        "3": "$2,500-$4,999.99",
+        "4": "$5,000-$9,999.99",
+        "5": "$10,000+",
+        "C": "No DM Gifts"
+      }
+    }
+  },
+  "PII_Columns": [],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "CARE",
+        "process": "CARE"
+      },
+      "timeout": 10000
+    },
+    "SourceCodeProcessing": {
+      "notebook": "./Fuse/UpdateSourceCodeTable",
+      "args": {
+        "client": "CARE"
+      },
+      "timeout": 1000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "CARE"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "clientMap": {
+    "YearPosition": 2,
+    "Method": "starts_ends",
+    "CampaignTypes": {
+      "Appeals": [["1"], ["R", "01","06","08","13","17","25","M1","ML","M8","24","25"]],            
+      "Acquisitions": [""]         
+      }
+    },
+  "ClientContact": {
+    "DataRequest": [
+      "Aisha.Eller@care.org",
+      "Sheronna.Ashford@care.org",
+      "LeQuetia.Hollis@care.org"
+    ],
+    "FileSharing": [
+      "Amy.Rhodes@care.org",
+      "Jennifer.BaldwinGinn@care.org",
+      "Paula.Dang@care.org",
+      "Faith.Anderson@care.org",
+      "Sheridan.Marfil@care.org",
+      "Shavon.Burden@care.org"
+    ]
+  },
+  "DataRequestFrequency": []
+}

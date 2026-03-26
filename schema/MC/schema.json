@@ -1,0 +1,623 @@
+{
+  "Ancillary": {
+    "Campaign": {
+      "action": "keep",
+      "directory": "Reference"
+    }
+  },
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/MC/Raw",
+    "CampaignCode": "Shared Documents/PowerBI/MercyCorps/Azure/SupportDocs"
+  },
+  "DuplicateKeys": {
+    "Column": "GiftID",
+    "Function": "dedupe_keep_last"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [
+    "AppealCodes.csv",
+    "Appeals and Campaigns List.CSV",
+    "MC_SourceCode.xlsx",
+    "MC_SourceCode_oldercampaigns.xlsx",
+    "Mercy Corps Account Info.csv"
+  ],
+  "FileHealth": {
+    "AppealCategory": {
+      "pandas": "object"
+    },
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "JoinCY": {
+      "pandas": "Int64"
+    },
+    "JoinFiscal": {
+      "pandas": "Int64"
+    },
+    "MC_UkraineDonor": {
+      "pandas": "object"
+    },
+    "MC_UkraineJoin": {
+      "pandas": "object"
+    },
+    "MC_AppealSubCategory": {
+      "pandas": "object"
+    },
+    "MC_Donor984126": {
+      "pandas": "object"
+    },
+    "MC_CampaignID": {
+      "pandas": "object"
+    },
+    "MC_JoinCampaignID": {
+      "pandas": "object"
+    },
+    "MC_FuseDM": {
+      "pandas": "object"
+    },
+    "MC_JoinFuseDM": {
+      "pandas": "object"
+    },
+    "MC_MidLevelDonor": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 7,
+  "KeyMapper": {
+    "Gf_Import_ID": "GiftID",
+    "Gf_Date": "GiftDate",
+    "Gf_Amount": "GiftAmount",
+    "Gf_Type": "GiftType",
+    "Campaign ID": "CampaignID",
+    "Gf_Campaign": "CampaignID",
+    "Gf_Fund": "FundID",
+    "Gf_Appeal": "CampaignCode",
+    "Gf_Package": "PackageID",
+    "Gf_Pay_method": "PayMethod",
+    "Gf_Constit_Code": "ConstituentCode",
+    "Gf_CnBio_Key_Indicator": "IndividualOrOrgFlag",
+    "Gf_CnBio_ID": "DonorID",
+    "Gf_Apls_1_01_Ap_Appeal_category": "AppealCategory",
+    "Appeal_Subcategory": "AppealSubCategory",
+    "Appeal_Tertiary_Category": "AppealTertiaryCategory",
+    "Gf_SfCrdt_Amount": "SoftCreditAmount",
+    "Gf_SfCrdt_Constituent_ID": "SoftCreditDonorID",
+    "Marketing_Source_Code": "SourceCode",
+    "Segment1": "SegmentCode",
+    "Gift_Subtype": "GiftSubtype",
+    "Campaign Description": "Program"
+  },
+  "ParquetCols": [
+    "CampaignID",
+    "FundID"
+  ],
+  "ReferenceFileNames": [
+    "MC_SourceCode.xlsx",
+    "MC_CampaignCodes.xlsx"
+  ],
+  "SourceCodeErrors": [
+    "QQ1N1021A46AQB",
+    "QQ1N1021A46AQC",
+    "QQ1N1021A46AQF",
+    "QQ1N1021A46AQG",
+    "QQ1N1021A46AQI",
+    "QQ1N1021A63BQF",
+    "QQ1N1021A63BQG",
+    "QQ1N1021A63BQI",
+    "QQ1N1021A65AQF",
+    "QQ1N1021A65AQG",
+    "QQ1N1021A65AQI",
+    "QQ1N1021C01CQB",
+    "QQ1N1021C01CQC",
+    "QQ1N1021C01CQF",
+    "QQ1N1021C01CQG",
+    "QQ1N1021C01CQI",
+    "QQ1N1021D36BQB",
+    "QQ1N1021D36BQC",
+    "QQ1N1021D36BQF",
+    "QQ1N1021D36BQG",
+    "QQ1N1021D36BQI",
+    "QQ1N1021F03EQB",
+    "QQ1N1021F03EQC",
+    "QQ1N1021F03EQF",
+    "QQ1N1021F03EQG",
+    "QQ1N1021F03EQI",
+    "QQ1N1021F06DQB",
+    "QQ1N1021F06DQC",
+    "QQ1N1021F06DQF",
+    "QQ1N1021F06DQG",
+    "QQ1N1021F06DQI",
+    "QQ1N1021ISPDQK",
+    "QQ1N1021ISPDQL",
+    "QQ1N1021ITHDQK",
+    "QQ1N1021ITHDQL",
+    "QQ1N1021LSPDQK",
+    "QQ1N1021LSPDQL",
+    "QQ1N1021LTHDQK",
+    "QQ1N1021LTHDQL",
+    "QQ1N1021M04BQB",
+    "QQ1N1021M04BQC",
+    "QQ1N1021M04BQF",
+    "QQ1N1021M04BQG",
+    "QQ1N1021M04BQI",
+    "QQ1N1021M04CQB",
+    "QQ1N1021M04CQC",
+    "QQ1N1021M04CQF",
+    "QQ1N1021M04CQG",
+    "QQ1N1021M04CQI",
+    "QQ1N1021M04DQB",
+    "QQ1N1021M04DQC",
+    "QQ1N1021M04DQI",
+    "QQ1N1021M04EQB",
+    "QQ1N1021M04EQC",
+    "QQ1N1021M04EQI",
+    "QQ1N1021O02BQB",
+    "QQ1N1021O02BQC",
+    "QQ1N1021O02BQF",
+    "QQ1N1021O02BQG",
+    "QQ1N1021O02BQI",
+    "QQ1N1021P01DQB",
+    "QQ1N1021P01DQC",
+    "QQ1N1021P01DQF",
+    "QQ1N1021P01DQG",
+    "QQ1N1021P01DQI",
+    "QQ1N1021P02AQB",
+    "QQ1N1021P02AQC",
+    "QQ1N1021P02AQF",
+    "QQ1N1021P02AQG",
+    "QQ1N1021P02AQI",
+    "QQ1N1021SSSSQB",
+    "QQ1N1021SSSSQC",
+    "QQ1N1021SSSSQF",
+    "QQ1N1021SSSSQG",
+    "QQ1N1021SSSSQI",
+    "QQ1N1021SSSSQK",
+    "QQ1N1021SSSSQL",
+    "QQ1N1021T04LQB",
+    "QQ1N1021T04LQC",
+    "QQ1N1021T04LQF",
+    "QQ1N1021T04LQG",
+    "QQ1N1021T04LQI",
+    "QQ1N1021W14AQF",
+    "QQ1N1021W14AQG",
+    "QQ1N1021W14AQI",
+    "QQ1N1021W24AQF",
+    "QQ1N1021W24AQG",
+    "QQ1N1021W24AQI",
+    "QQ1N1021W25AQF",
+    "QQ1N1021W25AQG",
+    "QQ1N1021W28BQF",
+    "QQ1N1021W28BQG",
+    "QQ1N1021W28BQI",
+    "QQ1N1021W29AQF",
+    "QQ1N1021W29AQG",
+    "QQ1N1021W29AQI",
+    "QQ1N1021W30CQF",
+    "QQ1N1021W30CQG",
+    "QQ1N1021W30CQI",
+    "QQ1N1121C01CQB",
+    "QQ1N1121C01CQC",
+    "QQ1N1121C01CQD",
+    "QQ1N1121C01CQG",
+    "QQ1N1121C01CQH",
+    "QQ1N1121C01CQI",
+    "QQ1N1121C01CQK",
+    "QQ1N1121D36BQB",
+    "QQ1N1121D36BQC",
+    "QQ1N1121D36BQD",
+    "QQ1N1121D36BQG",
+    "QQ1N1121D36BQH",
+    "QQ1N1121D36BQI",
+    "QQ1N1121D36BQK",
+    "QQ1N1121ISPDQM",
+    "QQ1N1121ISPDQN",
+    "QQ1N1121ISPDQO",
+    "QQ1N1121ITHDQM",
+    "QQ1N1121ITHDQN",
+    "QQ1N1121ITHDQO",
+    "QQ1N1121LSPDQM",
+    "QQ1N1121LSPDQN",
+    "QQ1N1121LSPDQO",
+    "QQ1N1121LTHDQM",
+    "QQ1N1121LTHDQN",
+    "QQ1N1121LTHDQO",
+    "QQ1N1121M04BQB",
+    "QQ1N1121M04BQC",
+    "QQ1N1121M04BQD",
+    "QQ1N1121M04BQG",
+    "QQ1N1121M04BQH",
+    "QQ1N1121M04BQI",
+    "QQ1N1121M04BQK",
+    "QQ1N1121M04CQB",
+    "QQ1N1121M04CQC",
+    "QQ1N1121M04CQD",
+    "QQ1N1121M04CQG",
+    "QQ1N1121M04CQH",
+    "QQ1N1121M04CQI",
+    "QQ1N1121M04CQK",
+    "QQ1N1121M04DQB",
+    "QQ1N1121M04DQC",
+    "QQ1N1121M04DQD",
+    "QQ1N1121M04DQG",
+    "QQ1N1121M04DQH",
+    "QQ1N1121M04DQI",
+    "QQ1N1121M04DQK",
+    "QQ1N1121M04EQB",
+    "QQ1N1121M04EQC",
+    "QQ1N1121M04EQD",
+    "QQ1N1121M04EQK",
+    "QQ1N1121M14AQB",
+    "QQ1N1121M14AQC",
+    "QQ1N1121M14AQD",
+    "QQ1N1121M14AQG",
+    "QQ1N1121M14AQH",
+    "QQ1N1121M14AQI",
+    "QQ1N1121M14AQK",
+    "QQ1N1121P01DQB",
+    "QQ1N1121P01DQC",
+    "QQ1N1121P01DQD",
+    "QQ1N1121P01DQG",
+    "QQ1N1121P01DQH",
+    "QQ1N1121P01DQI",
+    "QQ1N1121P01DQK",
+    "QQ1N1121T04EQB",
+    "QQ1N1121T04EQC",
+    "QQ1N1121T04EQD",
+    "QQ1N1121T04EQG",
+    "QQ1N1121T04EQH",
+    "QQ1N1121T04EQI",
+    "QQ1N1121W14AQG",
+    "QQ1N1121W14AQH",
+    "QQ1N1121W14AQI",
+    "QQ1N1121W14AQK",
+    "QQ1N1121W16AQG",
+    "QQ1N1121W16AQH",
+    "QQ1N1121W16AQI",
+    "QQ1N1121W16AQK",
+    "QQ1N1121W24AQG",
+    "QQ1N1121W24AQH",
+    "QQ1N1121W24AQI",
+    "QQ1N1121W24AQK",
+    "QQ1N1121W28BQG",
+    "QQ1N1121W28BQH",
+    "QQ1N1121W28BQI",
+    "QQ1N1121W29AQG",
+    "QQ1N1121W29AQH",
+    "QQ1N1121W29AQI",
+    "QQ1N1121W29AQK",
+    "QQ1N1121W30AQG",
+    "QQ1N1121W30AQH",
+    "QQ1N1121W30AQI",
+    "QQ1N1121W30CQG",
+    "QQ1N1121W30CQH",
+    "QQ1N1121W30CQI"
+  ],
+  "Suppressions": {
+    "CampaignID": {
+      "Values": [
+        "132",
+        "133",
+        "134",
+        "135",
+        "136",
+        "137",
+        "138",
+        "139",
+        "140",
+        "142",
+        "143",
+        "145",
+        "146",
+        "147",
+        "148",
+        "149",
+        "150",
+        "153",
+        "156",
+        "157",
+        "158",
+        "159",
+        "160"
+      ],
+      "Function": "dropna",
+      "Include": true
+    }
+  },
+  "SourceCodeRegex": {
+    "CampaignCode": "^[A-Z]{2}\\d[A-Z]\\d{4}$",
+    "PackageCode": "(^[A-Z0-9]{2}$)|(^NAN$)",
+    "SourceCode": "^[A-Za-z0-9_-]+$"
+  },
+  "SynthSC": {
+    "0": {
+      "column": "CampaignCode",
+      "fill_value": "ZZZZZZZZ"
+    },
+    "1": {
+      "column": "ListCode",
+      "fill_value": "LLLL"
+    },
+    "2": {
+      "column": "PackageCode",
+      "fill_value": "XX"
+    }
+  },
+  "SourceCodeDtypes": {
+    "CampaignName": "str",
+    "Fiscal": "int",
+    "MailDate": "date",
+    "AppealID": "str",
+    "SegmentCode": "str",
+    "PackageID": "str",
+    "List": "str",
+    "ListSelect": "str",
+    "SourceCodeID": "str",
+    "Quantity": "int",
+    "Theme": "str",
+    "PackageGroup": "str",
+    "Package": "str",
+    "PackageUseType": "str",
+    "PrimarySubject": "str",
+    "POUseType": "str",
+    "CostPerPiece(NOLISTCOSTS)": "float",
+    "RolloutCostPerPiece": "float",
+    "ListCostPerPiece": "float",
+    "LookupField": "str"
+  },
+  "CPMapper": {
+    "AppealID": "CampaignCode",
+    "PackageID": "PackageCode",
+    "Package": "PackageName",
+    "SegmentCode": "ListCode",
+    "List": "ListName",
+    "ListCostPerPiece": "ListCPP",
+    "CostPerPiece(NOLISTCOSTS)": "PackageCPP",
+    "M": "MonetaryCode",
+    "RF": "RecencyFrequency",
+    "Counts": "Quantity"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "ListCode",
+  "SCMapType": "mcyear",
+  "SCMapper": {
+    "2021": {
+      "MonetaryCode": {
+        "Position": 3,
+        "Map": {
+          "A": "$10000+",
+          "B": "$5000-9999",
+          "C": "$2500-4999",
+          "D": "$1000-2499",
+          "E": "$500-999",
+          "F": "$250-499",
+          "G": "$100-249",
+          "H": "$50-99",
+          "I": "$25-49",
+          "J": "$10-24",
+          "K": "$5-9.99",
+          "L": "$.01-4.99",
+          "S": "Seeds",
+          "U": "Placeholder for WGD",
+          "Z": "Reserve for Testing"
+        }
+      },
+      "RecencyCode": {
+        "Position": 4,
+        "Map": {
+          "A": "0-6 mo multis",
+          "B": "0-6 mo singles",
+          "C": "7-12 mo multis",
+          "D": "7-12 mo singles",
+          "E": "13-24 mo multis",
+          "F": "13-24 mo singles",
+          "G": "25-36 mo multis",
+          "H": "25-36 mo singles",
+          "I": "37-48 mo multis",
+          "J": "37-48 mo singles",
+          "K": "49-60 mo multis",
+          "L": "49-60 mo singles",
+          "M": "61-96 mo multis",
+          "N": "61-96 mo singles",
+          "O": "97+ mo multis",
+          "P": "97+ mo singles",
+          "S": "Seeds",
+          "U": "Placeholder for WGD",
+          "Z": "Reserve for Testing"
+        }
+      },
+      "FrequencyCode": {
+        "Position": 4,
+        "Map": {
+          "A": "0-6 mo multis",
+          "B": "0-6 mo singles",
+          "C": "7-12 mo multis",
+          "D": "7-12 mo singles",
+          "E": "13-24 mo multis",
+          "F": "13-24 mo singles",
+          "G": "25-36 mo multis",
+          "H": "25-36 mo singles",
+          "I": "37-48 mo multis",
+          "J": "37-48 mo singles",
+          "K": "49-60 mo multis",
+          "L": "49-60 mo singles",
+          "M": "61-96 mo multis",
+          "N": "61-96 mo singles",
+          "O": "97+ mo multis",
+          "P": "97+ mo singles",
+          "S": "Seeds",
+          "U": "Placeholder for WGD",
+          "Z": "Reserve for Testing"
+        }
+      }
+    },
+    "2022": {
+      "RecencyCode": {
+        "Position": 3,
+        "Map": {
+          "A": "0-12 mo",
+          "B": "13-24 mo",
+          "C": "25-36 mo",
+          "D": "37-48 mo",
+          "E": "49-60 mo"
+        }
+      },
+      "MonetaryCode": {
+        "Position": 4,
+        "Map": {
+          "K": "$0-$4.99",
+          "J": "$5-$24.99",
+          "I": "$25-$49.99",
+          "H": "$50-$99.99",
+          "D": "$100-$249.99",
+          "F": "$250-$499.99",
+          "E": "$500-$999.99",
+          "C": "$1000-$4999.99",
+          "B": "$5000-$9999.99",
+          "A": "$10000-$24999.99",
+          "Z": "$25000+"
+        }
+      }
+    }
+  },
+  "PII_Columns": [],
+  "ReportMenu": {
+    "MonthlyFiles": {
+      "notebook": "./MC/MC_MonthlyFileTransfer",
+      "args": {},
+      "timeout": 1000
+    },
+    "PromoHistory": {
+      "notebook": "./MC/MC_UpdatePromoHistory_fromADLS",
+      "args": {},
+      "timeout": 1000
+    },
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "MC",
+        "process": "MC"
+      },
+      "timeout": 10000
+    },
+    "SourceCodeProcessing": {
+      "notebook": "./Fuse/UpdateSourceCodeTable",
+      "args": {
+        "client": "MC"
+      },
+      "timeout": 1000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "HKI"
+      },
+      "timeout": 1000
+    },
+    "BrokerReport": {
+      "notebook": "./MC/MC_BrokerReport_1.5",
+      "args": {},
+      "timeout": 1000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "MC",
+        "dataset": "FileHealth",
+        "process": "MC"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "MC"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "MC"
+      },
+      "timeout": 1000
+    },
+    "CashFlows": {
+      "notebook": "./Fuse/CashflowReport",
+      "args": {
+        "client": "MC"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "decouple_file_health": true,
+  "CPFilters": [
+    "DonorID"
+  ],
+  "clientMap": {
+    "YearPosition": 6,
+    "Method": "starts_ends",
+    "CampaignTypes": {
+      "Appeals": ["A"],
+      "Acquisitions": ["QQ"]
+      }
+  },
+  "ClientContact": {
+    "DataRequest": [
+      "ehernandez@mercycorps.org",
+      "mchristensen@mercycorps.org"
+    ]
+  },
+  "DataRequestFrequency": [
+    "Weekly",
+    "Monthly"
+  ]
+}

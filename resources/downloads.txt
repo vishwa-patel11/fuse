@@ -1,0 +1,5 @@
+Jupyter notebooks:
+https://jupyter.org/
+
+Datbricks CLI:
+https://docs.databricks.com/dev-tools/cli/index.html

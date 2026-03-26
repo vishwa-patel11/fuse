@@ -1,0 +1,118 @@
+{
+  "Ancillary": {
+    "Account": {
+      "action": "remove",
+      "directory": ""
+    }
+  },
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/LWR/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "",
+    "Function": "dedupe_all"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 10,
+  "KeyMapper": {
+    "Amount": "GiftAmount",
+    "Date": "GiftDate",
+    "Primary Campaign Source: Campaign Name": "CampaignName",
+    "Constit ID": "DonorID"
+  },
+  "ParquetCols": [],
+  "ReferenceFileNames": [],
+  "Suppressions": {
+    "AppealCategory": {
+      "Values": [
+        "Acquisition",
+        "Appeal",
+        "Cultivation",
+        "Newsletter",
+        "Renewal",
+        "Sustainer",
+        "Blank"
+      ],
+      "Function": "isin",
+      "Include": true
+    }
+  },
+  "PII_Columns": [],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "LWR",
+        "process": "LWR"
+      },
+      "timeout": 10000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "LWR",
+        "dataset": "FileHealth",
+        "process": "LWR"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "LWR"
+      },
+      "timeout": 10000
+    }
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "Ancillary": {},
+  "ClientValues": {
+    "NullColumns": {
+      "Values": [
+        "CORPORATE",
+        "CAR",
+        "CHAR",
+        "CFC",
+        "P4P",
+        "WM",
+        "CHI",
+        "LF08",
+        "PALM",
+        "Peer",
+        "SCFr",
+        "STO",
+        "WAS"
+      ]
+    },
+    "CharMap": {
+      "Values": {
+        "C": "Canada Appeal",
+        "H": "US Appeal 0-12 months",
+        "L": "US Appeal 13-36 months",
+        "W": "Welcome Kit",
+        "P": "US Prospect",
+        "Q": "US Deep Lapsed 37+",
+        "X": "Canada Prospect",
+        "S": "Sustainer"
+      }
+    }
+  },
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": "%Y%m%d",
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/TSE/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "",
+    "Function": "dedupe_naive"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorGroup": {
+      "pandas": "object"
+    },
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "TSE_Program": {
+      "pandas": "object"
+    },
+    "TSE_Channel": {
+      "pandas": "object"
+    },
+    "TSE_JoinChannel": {
+      "pandas": "object"
+    },
+    "TSE_RecurringGift": {
+      "pandas": "object"
+    },
+    "TSE_Sustainer": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 10,
+  "KeyMapper": {
+    "Appeal ID": "AppealID",
+    "Gift Date": "GiftDate",
+    "Gift Amount": "GiftAmount",
+    "ID": "DonorID",
+    "Package Code": "SourceCode",
+    "Gift Type": "GiftType"
+  },
+  "ParquetCols": [
+    "DonorID",
+    "Luminate SubCode",
+    "Luminate SourceCode"
+  ],
+  "ReferenceFileNames": [],
+  "Suppressions": {},
+  "SourceCodeRegex": {
+    "SourceCode": "^[A-Z0-9]{3,14}$"
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "SourceCodeID": "SourceCode",
+    "CampaignID": "CampaignCode",
+    "CostPerPiece": "PackageCPP",
+    "ListCostPerPiece": "ListCPP",
+    "Package": "PackageName",
+    "List": "ListName"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "_SourceCode",
+  "SCMapType": "header",
+  "SCMapper": {
+    "PackageCode": {
+      "Position": 5,
+      "Map": {
+        "A": "US MidLevel Control",
+        "B": "US Core Control",
+        "C": "US Lapsed Control",
+        "D": "Directors",
+        "E": "Heritage Society",
+        "F": "Send Direct Mail"
+      }
+    },
+    "RecencyCode": {
+      "Position": 6,
+      "Map": {
+        "A": "0-6 months",
+        "B": "7-12 months",
+        "C": "13-18 months",
+        "D": "19-24 months",
+        "E": "25-36 months",
+        "F": "37-48 months",
+        "G": "49-60 months"
+      }
+    },
+    "MonetaryCode": {
+      "Position": 7,
+      "Map": {
+        "A": "<$5",
+        "B": "$5-9.99",
+        "C": "$10-14.99",
+        "D": "$15-24.99",
+        "E": "$25-49.99",
+        "F": "$50-99.99",
+        "G": "$100-249.99",
+        "H": "$250-499.99",
+        "J": "$500-999.99",
+        "K": "$1000+"
+      }
+    }
+  },
+  "PII_Columns": [],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "TSE",
+        "process": "TSE"
+      },
+      "timeout": 10000
+    },
+    "SourceCodeProcessing": {
+      "notebook": "./Fuse/UpdateSourceCodeTable",
+      "args": {
+        "client": "TSE"
+      },
+      "timeout": 1000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "TSE"
+      },
+      "timeout": 1000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "TSE",
+        "dataset": "FileHealth",
+        "process": "TSE"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "TSE"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "TSE"
+      },
+      "timeout": 1000
+    },
+    "CashFlows": {
+      "notebook": "./Fuse/CashflowReport",
+      "args": {
+        "client": "TSE"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [
+    "SustainerFlag",
+    "SustainerGiftFlag",
+    "GiftFiscal",
+    "GiftMonth"
+  ],
+  "clientMap": {
+    "YearPosition": 1,
+    "Method": "starts_ends",
+    "CampaignTypes": {
+      "Appeals": ["C", "D", "G", "H", "L", "M", "N", "Q", "S", "Y", "Z"],
+      "Acquisitions": ["I", "P", "Q", "X"]
+      }
+    },
+  "ClientContact": {
+    "DataRequest": [
+      "kthomson@zetaglobal.com",
+      "SMeehan@seeingeye.org"
+    ]
+  },
+  "DataRequestFrequency": [
+    "Monthly"
+  ]
+}

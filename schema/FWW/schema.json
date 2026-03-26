@@ -1,0 +1,301 @@
+{
+  "Ancillary": {},
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/FWW/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "GiftID",
+    "Function": "dedupe"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "FWW_C3C4": {
+      "pandas": "object"
+    },
+    "FWW_Channel": {
+      "pandas": "object"
+    },
+    "FWW_DonorGroup": {
+      "pandas": "object"
+    },
+    "FWW_JoinSource": {
+      "pandas": "object"
+    },
+    "FWW_Online": {
+      "pandas": "object"
+    },
+    "FWW_Program": {
+      "pandas": "object"
+    },
+    "FWW_Sustainer": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "FWW_JoinChannel": {
+      "pandas": "object"
+    },
+    "JoinFiscalYear": {
+      "pandas": "Int64"
+    },
+    "FWW_ChannelBehavior": {
+      "pandas": "object"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "JoinCY": {
+      "pandas": "object"
+    },
+    "JoinMonth": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 7,
+  "Global": {},
+  "KeyMapper": {
+    "Primary Campaign Source: 18 Digit Campaign ID": "CampaignID",
+    "Primary Campaign Source: Campaign Name": "CampaignName",
+    "Primary Contact: 18 Digit Contact ID": "DonorID",
+    "Primary Fund: Fund Name": "PrimaryFund",
+    "Opportunity ID": "GiftID",
+    "Close Date": "GiftDate",
+    "Amount": "GiftAmount",
+    "Members Code": "SourceCode"
+  },
+  "ParquetCols": [],
+  "ReferenceFileNames": [],
+  "Suppressions": {
+    "DonorID": {
+      "Values": [
+        "0036A00000MwkvKQAR",
+        "0036A00000MuJB6QAN",
+        "0036A00000KBm03QAD",
+        "0036A00000Msc9eQAB",
+        "0032G00002R3U3PQAV",
+        "0036A00000KBjFQQA1"
+      ],
+      "Function": "isin",
+      "Include": false
+    }
+  },
+  "SourceCodeRegex": {
+    "SourceCode": ""
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "Campaign Name": "CampaignName",
+    "Package Code": "PackageCode",
+    "Package CPP": "PackageCPP",
+    "List Name": "ListName",
+    "Mail Date": "MailDate",
+    "Package Name": "PackageName"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "SourceCode",
+  "SCMapType": "header",
+  "SCMapper": {
+    "PackageCode": {
+      "Position": 17,
+      "Map": {
+        "A": "Package A",
+        "B": "Package B",
+        "C": "Package C",
+        "D": "Package D",
+        "E": "Package E",
+        "F": "Package F",
+        "G": "Package G",
+        "H": "Package H",
+        "I": "Package I",
+        "J": "Package J",
+        "K": "Package K",
+        "L": "Package L",
+        "M": "Package M",
+        "N": "Package N",
+        "O": "Package 0",
+        "P": "Package P",
+        "Q": "Package Q",
+        "R": "Package R",
+        "S": "Package S",
+        "T": "Package T",
+        "U": "Package U",
+        "V": "Package V",
+        "W": "Package W",
+        "X": "Package X",
+        "Y": "Package Y",
+        "Z": "Package Z"
+      }
+    },
+    "RecencyCode": {
+      "Position": 19,
+      "Map": {
+        "1": "0-3 month",
+        "2": "4-6 months",
+        "3": "7-12 months",
+        "4": "13-18 months",
+        "5": "19-24 months",
+        "6": "25-36 months",
+        "7": "37-48 months",
+        "8": "49-60 months",
+        "9": "61+ months"
+      }
+    },
+    "FrequencyCode": {
+      "Position": 20,
+      "Map": {
+        "S": "Singles",
+        "M": "Multi Year",
+        "X": "ALL",
+        "A": "Multi Appeals"
+      }
+    },
+    "MonetaryCode": {
+      "Position": 18,
+      "Map": {
+        "1": "$0-4.99",
+        "2": "$5-9.99",
+        "3": "$10-14.99",
+        "4": "$15-19.99",
+        "5": "$20-34.99",
+        "6": "$35-49.99",
+        "7": "$50-99.99",
+        "8": "$100-249.99",
+        "9": "$250-499.99",
+        "A": "$500-749.99",
+        "B": "$750-999.99",
+        "C": "$1000+"
+      }
+    },
+    "ListCode": {
+      "Position": [
+        22,
+        24
+      ],
+      "Map": {
+        "XXX": "No List",
+        "DXX": "Dual (Mail & Online) Donors"
+      },
+      "MXX": "Mail Donors",
+      "OXX": "Online Donors",
+      "AXX": "ALL Donors"
+    }
+  },
+  "PII_Columns": [],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "FWW",
+        "process": "FWW"
+      },
+      "timeout": 10000
+    },
+    "SourceCodeProcessing": {
+      "notebook": "./Fuse/UpdateSourceCodeTable",
+      "args": {
+        "client": "FWW"
+      },
+      "timeout": 1000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "FWW"
+      },
+      "timeout": 1000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "FWW",
+        "dataset": "FileHealth",
+        "process": "FWW"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "FWW"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "FWW"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "clientMap": {
+    "YearPosition": 5,
+    "Method": "starts_ends",
+    "CampaignTypes": {
+      "Appeals": ["4D"],
+      "Acquisitions": ["4D","3D"]
+      }
+  },
+  "ClientContact": {
+    "DataRequest": [
+      "kanderson@fwwatch.org",
+      "kmeshesha@fwwatch.org"
+    ],
+    "FileSharing": [
+      "klarson@fwwatch.org",
+      "rjones@fwwatch.org"
+    ]
+  },
+  "DataRequestFrequency": [
+    "Monthly"
+  ]
+}

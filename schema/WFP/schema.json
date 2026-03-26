@@ -1,0 +1,352 @@
+{
+  "Ancillary": {
+    "IDs": {
+      "action": "skip",
+      "directory": ""
+    }
+  },
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/WFP/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "",
+    "Function": "dedupe_naive"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "JoinMonth": {
+      "pandas": "Int64"
+    },
+    "JoinFiscalYear": {
+      "pandas": "Int64"
+    },
+    "JoinYear": {
+      "pandas": "Int64"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "WFP_GiftChannel": {
+      "pandas": "object"
+    },
+    "WFP_GiftChannelDetail": {
+      "pandas": "object"
+    },
+    "WFP_GiftChannelSubtype": {
+      "pandas": "object"
+    },
+    "WFP_Donor0014T000004x9wfQAA": {
+      "pandas": "object"
+    },
+    "WFP_DonorChannelGroup": {
+      "pandas": "object"
+    },
+    "WFP_JoinChannel": {
+      "pandas": "object"
+    },
+    "WFP_JoinChannelDetail": {
+      "pandas": "object"
+    },
+    "WFP_JoinChannelSubtype": {
+      "pandas": "object"
+    },
+    "WFP_RecurringGift": {
+      "pandas": "object"
+    },
+    "WFP_Sustainer": {
+      "pandas": "object"
+    },
+    "WFP_UkraineDonor": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 10,
+  "KeyMapper": {
+    "Billing State/Province (text only)": "State",
+    "Contact ID for Role": "ContactID",
+    "Close Date": "GiftDate",
+    "Account ID": "DonorID",
+    "Amount": "GiftAmount",
+    "Source Code": "SourceCode"
+  },
+  "ParquetCols": [],
+  "ReferenceFileNames": [],
+  "Suppressions": {},
+  "SourceCodeRegex": {
+    "SourceCode": "^[A-Z0-9]{7,20}$"
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "SourceCodeID": "SourceCode",
+    "Sub Source": "CampaignCode",
+    "CostPerPiece": "PackageCPP",
+    "List": "ListName",
+    "ListCostPerPiece": "ListCPP",
+    "Package": "PackageName",
+    "ListCost": "ListCPP"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "SourceCode",
+  "SCMapType": "fiscal_year",
+  "SCMapper": {
+    "2022": {
+      "PackageCode": {
+        "Position": 13,
+        "Map": {
+          "A": "Pkg A",
+          "B": "Pkg B",
+          "C": "Pkg c",
+          "D": "Pkg D",
+          "E": "Pkg E",
+          "F": "Pkg F",
+          "G": "Pkg G",
+          "H": "Pkg H",
+          "J": "Pkg J",
+          "K": "Pkg K"
+        }
+      },
+      "RecencyCode": {
+        "Position": 15,
+        "Map": {
+          "1": "A: 0-3 month",
+          "2": "B: 4-6 months",
+          "3": "C: 7-12 months",
+          "4": "D: 13-18 months",
+          "5": "E: 19-24 months",
+          "6": "F: 25-36 months",
+          "7": "G: 37-48 months",
+          "8": "H: 49-60 months",
+          "9": "I: 61+ months"
+        }
+      },
+      "FrequencyCode": {
+        "Position": 16,
+        "Map": {
+          "S": "Singles",
+          "M": "Multis",
+          "X": "All",
+          "A": "Multi Appeals"
+        }
+      },
+      "MonetaryCode": {
+        "Position": 14,
+        "Map": {
+          "1": "A: $0-4",
+          "2": "B: $5-9",
+          "3": "C: $10-14",
+          "4": "D: $15-19",
+          "5": "E: $20-34",
+          "6": "F: $35-49",
+          "7": "G: $50-99",
+          "8": "H: $100-249",
+          "9": "I: $250-499",
+          "A": "J: $500-749",
+          "B": "K: $750-999",
+          "C": "L: $1000+",
+          "D": "M: $5000+"
+        }
+      }
+    },
+    "2023": {
+      "PackageCode": {
+        "Position": 7,
+        "Map": {
+          "A": "Package 1",
+          "B": "Package 2",
+          "C": "Package 3"
+        }
+      },
+      "RecencyCode": {
+        "Position": 6,
+        "Map": {
+          "A": "0: 0-12 MO 1 Gift",
+          "F": "0: 0-12 MO 2 Gifts",
+          "L": "0: 0-12 MO 3+ Gifts",
+          "B": "1: 13-24 MO 1 Gift",
+          "G": "1: 13-24 MO 2 Gifts",
+          "M": "1: 13-24 MO 3+ Gifts",
+          "C": "2: 25-36 MO 1 Gift",
+          "H": "2: 25-36 MO 2 Gifts",
+          "N": "2: 25-36 MO 3+ Gifts",
+          "D": "3: 37-48 MO 1 Gift",
+          "J": "3: 37-48 MO 2 Gifts",
+          "P": "3: 37-48 MO 3+ Gifts",
+          "E": "4: 49-60 MO 1 Gift",
+          "K": "4: 49-60 MO 2 Gifts",
+          "Q": "4: 49-60 MO 3+ Gifts",
+          "R": "5: 61-72 MO 1 Gift",
+          "U": "5: 61-72 MO 2 Gifts",
+          "X": "5: 61-72 MO 3+ Gifts",
+          "S": "6: 73-84 MO 1 Gift",
+          "V": "6: 73-84 MO 2 Gifts",
+          "Y": "6: 73-84 MO 3+ Gifts",
+          "T": "7: 85-96 MO 1 Gift",
+          "W": "7: 85-96 MO 2 Gifts",
+          "Z": "7: 85-96 MO 3+ Gifts"
+        }
+      },
+      "FrequencyCode": {
+        "Position": 6,
+        "Map": {
+          "A": "0: 0-12 MO 1 Gift",
+          "F": "0: 0-12 MO 2 Gifts",
+          "L": "0: 0-12 MO 3+ Gifts",
+          "B": "1: 13-24 MO 1 Gift",
+          "G": "1: 13-24 MO 2 Gifts",
+          "M": "1: 13-24 MO 3+ Gifts",
+          "C": "2: 25-36 MO 1 Gift",
+          "H": "2: 25-36 MO 2 Gifts",
+          "N": "2: 25-36 MO 3+ Gifts",
+          "D": "3: 37-48 MO 1 Gift",
+          "J": "3: 37-48 MO 2 Gifts",
+          "P": "3: 37-48 MO 3+ Gifts",
+          "E": "4: 49-60 MO 1 Gift",
+          "K": "4: 49-60 MO 2 Gifts",
+          "Q": "4: 49-60 MO 3+ Gifts",
+          "R": "5: 61-72 MO 1 Gift",
+          "U": "5: 61-72 MO 2 Gifts",
+          "X": "5: 61-72 MO 3+ Gifts",
+          "S": "6: 73-84 MO 1 Gift",
+          "V": "6: 73-84 MO 2 Gifts",
+          "Y": "6: 73-84 MO 3+ Gifts",
+          "T": "7: 85-96 MO 1 Gift",
+          "W": "7: 85-96 MO 2 Gifts",
+          "Z": "7: 85-96 MO 3+ Gifts"
+        }
+      },
+      "MonetaryCode": {
+        "Position": 5,
+        "Map": {
+          "A": "A: $0-4",
+          "B": "B: $5-$9",
+          "C": "C: 10-$14",
+          "D": "D: $15-$24",
+          "E": "E: $25-$49",
+          "F": "F: $50-$99",
+          "G": "G: $100-$249",
+          "H": "H: $250-499",
+          "I": "I: $500-999",
+          "J": "J: $1000-2499",
+          "K": "K: $2500-$4999",
+          "L": "L: $5000-9999"
+        }
+      }
+    }
+  },
+  "PII_Columns": [
+    "Opportunity Name"
+  ],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "WFP",
+        "process": "WFP"
+      },
+      "timeout": 10000
+    },
+    "SourceCodeProcessing": {
+      "notebook": "./Fuse/UpdateSourceCodeTable",
+      "args": {
+        "client": "WFP"
+      },
+      "timeout": 1000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "WFP"
+      },
+      "timeout": 1000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "WFP",
+        "dataset": "FileHealth",
+        "process": "WFP"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "WFP"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "WFP"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "clientMap": {
+    "YearPosition": 0,
+    "Method": "starts_ends",
+    "CampaignTypes": {
+      "Appeals": ["DMUNA"],
+      "Acquisitions": ["DMUNP"]
+      }
+  },
+  "ClientContact": {
+    "DataSharing": [
+      "lelgin@wfpusa.org",
+      "asamassekou@wfpusa.org"
+    ]
+  },
+  "DataRequestFrequency": []
+}

@@ -1,0 +1,306 @@
+{
+  "Ancillary": {},
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/HKI/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "GiftID",
+    "Function": "dedupe"
+  },
+  "Encoding": "ISO-8859-1",
+  "Exclusions": [],
+  "FileHealth": {
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 7,
+  "KeyMapper": {
+    "Gift Date": "GiftDate",
+    "Gift Amount": "GiftAmount",
+    "Amount": "GiftAmount",
+    "Constituent ID": "DonorID",
+    "Fund Category": "FundCategory",
+    "Gift Subtype": "GiftSubtype",
+    "Appeal Category": "AppealCategory",
+    "Appeal ID": "AppealID",
+    "Gift Specific Attributes Luminate Online Donation Form Name Description": "FormNameDescription",
+    "Gift Specific Attributes Luminate Online Gift ID Description": "GiftIDDescription",
+    "Gift ID": "GiftID",
+    "Package ID": "PackageID"
+  },
+  "ParquetCols": [
+    "FormNameDescription",
+    "GiftIDDescription"
+  ],
+  "ReferenceFileNames": [],
+  "Suppressions": {
+    "AppealID": {
+      "Values": [
+        "List Rental 2017",
+        "List Rental",
+        "Expense Reimbursement",
+        "Travel Reimbursement"
+      ],
+      "Function": "isin",
+      "Include": false
+    },
+    "Donor Type": {
+      "Values": [
+        "Fraudulent Record"
+      ],
+      "Function": "isin",
+      "Include": false
+    },
+    "DonorID": {
+      "Values": [
+        "572",
+        "2480",
+        "3601",
+        "37576",
+        "52851",
+        "104590",
+        "172455",
+        "175701",
+        "180270",
+        "181971",
+        "186052",
+        "186946",
+        "193012",
+        "199133",
+        "199349",
+        "199415",
+        "200124",
+        "200520",
+        "205010",
+        "205011",
+        "205012",
+        "205013",
+        "205160",
+        "205161",
+        "205162",
+        "205163",
+        "205164",
+        "205165",
+        "205166",
+        "205167",
+        "205168",
+        "205300",
+        "206505",
+        "206506",
+        "206507",
+        "206508",
+        "206509",
+        "206510",
+        "206511",
+        "206512",
+        "206513",
+        "206514",
+        "207460",
+        "210169",
+        "210298",
+        "210574",
+        "210629",
+        "210721",
+        "21103",
+        "211441",
+        "211447",
+        "212243",
+        "212270"
+      ],
+      "Function": "isin",
+      "Include": false
+    },
+    "GiftSubtype": {
+      "Values": [
+        "Cash - 3500 (Other - Citibank2)",
+        "Cash - 3500 (Other)",
+        "Cash - 3500 (Other2)",
+        "Cash - 3700 (DM - US Bank)",
+        "Cash - 3700 (DM-Citibank)",
+        "Cash - 3700 (DM-Citibank2)",
+        "Core Donors (40850)",
+        "Direct Mail Campaign (40850)",
+        "Direct Marketing Direct Mail Campaign (40850)",
+        "Direct Marketing Online (40860)",
+        "Direct Marketing Workplace Giving & Matching Gifts (40400)",
+        "Recurring Gift Pay - Cash 3700 (DM)"
+      ],
+      "Function": "isin",
+      "Include": true
+    }
+  },
+  "SourceCodeRegex": {
+    "SourceCode": "^[A-Z0-9]{5,10}$"
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "Appeal ID": "CampaignCode",
+    "AppealID": "CampaignCode",
+    "Appeal Description": "CampaignName",
+    "Package ID": "PackageCode",
+    "Package Cost Per Piece": "PackageCPP",
+    "List Name": "ListName",
+    "Package Quantity Mailed": "Quantity",
+    "Mail Date": "MailDate",
+    "Package Description": "PackageName"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "_SourceCode",
+  "SCMapType": "header",
+  "SCMapper": {
+    "RecencyCode": {
+      "Position": 9,
+      "Map": {
+        "1": "0-12 months",
+        "2": "13-24 months",
+        "3": "25-36 months",
+        "4": "37-48 months",
+        "5": "49-60 months",
+        "6": "61-72 months",
+        "7": "73-84 months",
+        "8": "85-96 months",
+        "9": "97-108 months",
+        "X": "109+ months"
+      }
+    },
+    "FrequencyCode": {
+      "Position": null,
+      "Map": {}
+    },
+    "MonetaryCode": {
+      "Position": 8,
+      "Map": {
+        "A": "$0-$4.99",
+        "B": "$5-$9.99",
+        "C": "$10-$14.99",
+        "D": "$15-$24.99",
+        "E": "$25-$$49.99",
+        "F": "$50-$99.99",
+        "G": "$100-$249.99",
+        "H": "$250+"
+      }
+    }
+  },
+  "PII_Columns": [],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "HKI",
+        "process": "HKI"
+      },
+      "timeout": 10000
+    },
+    "SourceCodeProcessing": {
+      "notebook": "./Fuse/UpdateSourceCodeTable",
+      "args": {
+        "client": "HKI"
+      },
+      "timeout": 1000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "HKI"
+      },
+      "timeout": 1000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "HKI",
+        "dataset": "FileHealth",
+        "process": "HKI"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "HKI"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "HKI"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "decouple_file_health": false,
+  "CPFilters": [
+    "GiftSubtype",
+    "CSAMDD"
+  ],
+  "clientMap": {
+    "YearPosition": 3,
+    "Method": "starts_ends",
+    "CampaignTypes": {
+      "Appeals": ["H"],
+      "Acquisitions": ["P"]
+      }
+  },
+  "ClientContact": {
+    "DataRequest": [
+      "CToriaga@hki.org",
+      "DSemler@hki.org",
+      "CEwald@hki.org",
+      "madelinert@fusefundraising.com"
+    ]
+  },
+  "DataRequestFrequency": [
+    "Biweekly"
+  ]
+}

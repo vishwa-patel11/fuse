@@ -1,0 +1,16 @@
+{
+  "schema_root": "/Workspace/Shared/schema",
+  "metadata_catalog": "dev_catalog",
+  "metadata_schema": "metadata",
+  "silver_catalog": "dev_catalog",
+  "bronze_catalog": "dev_catalog",
+  "client_schema": null,
+  "clients": ["WFP"],
+  "table_suffix_map": {
+    "gift": "gift_bronze",
+    "sourcecode": "sourcecode_bronze",
+    "budget": "budget_bronze"
+  },
+  "metadata_tables": ["etl2_status", "client", "max_gift_dates", "etl2_qa_results", "etl2_column_qa", "fh_report_periods"],
+  "metadata_table_prefixes": ["template_"]
+}

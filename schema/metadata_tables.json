@@ -1,0 +1,44 @@
+{
+  "etl2_status": {
+    "client": "object",
+    "process": "object",
+    "step": "object",
+    "ts": "datetime64[ns]"
+  },
+  "etl2_qa_results": {
+    "client": "object",
+    "dataset": "object",
+    "check": "object",
+    "error_description": "object",
+    "fail": "bool",
+    "ts": "datetime64[ns]",
+    "check_level": "object"
+  },
+  "etl2_column_qa": {
+    "column_name": "object",
+    "client": "object"
+  },
+  "max_gift_dates": {
+    "client": "object",
+    "curated": "datetime64[ns]",
+    "data_parquet": "datetime64[ns]",
+    "file_health": "datetime64[ns]",
+    "master": "datetime64[ns]",
+    "trx_parquet": "datetime64[ns]"
+  },
+  "client": {
+    "client": "object",
+    "client_name": "object",
+    "vertical": "object",
+    "fiscal_year_start": "int",
+    "logo_url": "object",
+    "primary_color": "object",
+    "secondary_color": "object",
+    "active": "bool"
+  },
+  "fh_report_periods": {
+    "client": "object",
+    "period": "object",
+    "max_gift_date": "datetime64[ns]"
+  }
+}

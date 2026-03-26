@@ -1,0 +1,274 @@
+{
+  "Ancillary": {},
+  "Columns": [],
+  "DataMapper": {},
+  "DateFormat": null,
+  "LegacyDirectories": [
+    "Shared Documents/Client Folders/NJH/NJH and Fuse Shared Files/_MonthlyTransactionFiles"
+  ],
+  "Directories": {
+    "Data": "Shared Documents/Reporting 2.0/NJH/Raw"
+  },
+  "DuplicateKeys": {
+    "Column": "GiftID",
+    "Function": "dedupe_keep_last"
+  },
+  "Encoding": null,
+  "Exclusions": [
+    "Drive Report Data.CSV"
+  ],
+  "FileHealth": {
+    "NJH_DM": {
+      "pandas": "object"
+    },
+    "DonorID": {
+      "pandas": "object"
+    },
+    "EndofRptPeriod": {
+      "pandas": "datetime64[ns]"
+    },
+    "FHGroup": {
+      "pandas": "object"
+    },
+    "FHGroupDetail": {
+      "pandas": "object"
+    },
+    "GiftAmount": {
+      "pandas": "float64"
+    },
+    "GiftAmountFlag": {
+      "pandas": "object"
+    },
+    "GiftDate": {
+      "pandas": "datetime64[ns]"
+    },
+    "GiftFiscal": {
+      "pandas": "Int64"
+    },
+    "GiftHistory": {
+      "pandas": "object"
+    },
+    "GiftLevel": {
+      "pandas": "object"
+    },
+    "GiftMonth": {
+      "pandas": "Int64"
+    },
+    "JoinLevel": {
+      "pandas": "object"
+    },
+    "NJH_Patient": {
+      "pandas": "object"
+    },
+    "NJH_Program": {
+      "pandas": "object"
+    },
+    "NJH_ProgramType": {
+      "pandas": "object"
+    },
+    "NJH_GiftChannel": {
+      "pandas": "object"
+    },
+    "NJH_JoinChannel": {
+      "pandas": "object"
+    },
+    "Period": {
+      "pandas": "object"
+    },
+    "ReportPeriod": {
+      "pandas": "object"
+    },
+    "calcDate": {
+      "pandas": "datetime64[ns]"
+    }
+  },
+  "firstMonthFiscalYear": 7,
+  "KeyMapper": {
+    "Gf_CnBio_ID": "DonorID",
+    "Gf_Amount": "GiftAmount",
+    "Gf_Date": "GiftDate",
+    "Gf_Gift_ID": "GiftID"
+  },
+  "ParquetCols": ["Gf_CnBio_Import_ID"],
+  "ReferenceFileNames": [],
+  "Special": {
+    "IgnoreDates": true
+  },
+  "Suppressions": {},
+  "SourceCodeRegex": {
+    "SourceCode": "(^[A-Z 0-9]{3,13}$)"
+  },
+  "SynthSC": {},
+  "CPMapper": {
+    "SourceCodeID": "SourceCode",
+    "CampaignID": "CampaignCode",
+    "SegmentID": "PackageCode",
+    "ListSegment": "ListCode",
+    "List": "ListName",
+    "ListCostPerPiece": "ListCPP",
+    "CostPerPiece": "PackageCPP",
+    "Package": "PackageName"
+  },
+  "CPUnique": {
+    "add": [],
+    "remove": []
+  },
+  "SCMapKey": "_SourceCode",
+  "SCMapType": "header",
+  "SCMapper": {
+    "ListCode": {
+      "Position": [
+        7,
+        9
+      ],
+      "Map": {}
+    },
+    "PackageCode": {
+      "Position": 9,
+      "Map": {
+        "A": "Package 1",
+        "B": "Package 2",
+        "C": "Package 3",
+        "D": "Package 4",
+        "E": "Package 5",
+        "F": "Package 6",
+        "G": "Package 7"
+      }
+    },
+    "RecencyCode": {
+      "Position": 5,
+      "Map": {
+        "A": "0-12 MO 1 Gift",
+        "B": "13-24 MO 1 Gift",
+        "C": "25-36 MO 1 Gift",
+        "D": "37-48 MO 1 Gift",
+        "E": "49-60 MO 1 Gift",
+        "R": "61-72 MO 1 Gift",
+        "S": "73-84 MO 1 Gift",
+        "T": "85-96 MO 1 Gift",
+        "F": "0-12 MO 2 Gifts",
+        "G": "13-24 MO 2 Gifts",
+        "H": "25-36 MO 2 Gifts",
+        "J": "37-48 MO 2 Gifts",
+        "K": "49-60 MO 2 Gifts",
+        "U": "61-72 MO 2 Gifts",
+        "V": "73-84 MO 2 Gifts",
+        "W": "85-96 MO 2 Gifts",
+        "L": "0-12 MO 3+ Gifts",
+        "M": "13-24 MO 3+ Gifts",
+        "N": "25-36 MO 3+ Gifts",
+        "P": "37-48 MO 3+ Gifts",
+        "Q": "49-60 MO 3+ Gifts",
+        "X": "61-72 MO 3+ Gifts",
+        "Y": "73-84 MO 3+ Gifts",
+        "Z": "85-96 MO 3+ Gifts",
+        "92": "97+ MO"
+      }
+    },
+    "FrequencyCode": {
+      "Position": 5,
+      "Map": {
+        "A": "0-12 MO 1 Gift",
+        "B": "13-24 MO 1 Gift",
+        "C": "25-36 MO 1 Gift",
+        "D": "37-48 MO 1 Gift",
+        "E": "49-60 MO 1 Gift",
+        "R": "61-72 MO 1 Gift",
+        "S": "73-84 MO 1 Gift",
+        "T": "85-96 MO 1 Gift",
+        "F": "0-12 MO 2 Gifts",
+        "G": "13-24 MO 2 Gifts",
+        "H": "25-36 MO 2 Gifts",
+        "J": "37-48 MO 2 Gifts",
+        "K": "49-60 MO 2 Gifts",
+        "U": "61-72 MO 2 Gifts",
+        "V": "73-84 MO 2 Gifts",
+        "W": "85-96 MO 2 Gifts",
+        "L": "0-12 MO 3+ Gifts",
+        "M": "13-24 MO 3+ Gifts",
+        "N": "25-36 MO 3+ Gifts",
+        "P": "37-48 MO 3+ Gifts",
+        "Q": "49-60 MO 3+ Gifts",
+        "X": "61-72 MO 3+ Gifts",
+        "Y": "73-84 MO 3+ Gifts",
+        "Z": "85-96 MO 3+ Gifts",
+        "92": "97+ MO"
+      }
+    },
+    "MonetaryCode": {
+      "Position": 4,
+      "Map": {
+        "A": "\\$0-\\$4",
+        "B": "\\$5-\\$9",
+        "C": "\\$10-\\$14",
+        "D": "\\$15-\\$24",
+        "E": "\\$25-\\$49",
+        "F": "\\$50-\\$99",
+        "G": "\\$100-\\$249",
+        "H": "\\$250+"
+      }
+    }
+  },
+  "PII_Columns": [
+    "PMM",
+    "PPM"
+  ],
+  "ReportMenu": {
+    "Client": {
+      "notebook": "./python_modules/Client_2.2",
+      "args": {
+        "client": "NJH",
+        "process": "NJH"
+      },
+      "timeout": 10000
+    },
+    "SourceCodeProcessing": {
+      "notebook": "./Fuse/UpdateSourceCodeTable",
+      "args": {
+        "client": "NJH"
+      },
+      "timeout": 1000
+    },
+    "CampaignPerformance_wFilters": {
+      "notebook": "./Fuse/CampPerf_2.0_wFilters",
+      "args": {
+        "client": "NJH"
+      },
+      "timeout": 1000
+    },
+    "FileHealth": {
+      "notebook": "./python_modules/FileHealth_Data",
+      "args": {
+        "client": "NJH",
+        "dataset": "FileHealth",
+        "process": "NJH"
+      },
+      "timeout": 10000
+    },
+    "FileHealthMeasures": {
+      "notebook": "./python_modules/FileHealth_Report",
+      "args": {
+        "client": "NJH"
+      },
+      "timeout": 10000
+    },
+    "FileHealthForAdverity": {
+      "notebook": "./Fuse/Client_Filehealth_with_FHGroup_for_Adverity",
+      "args": {
+        "client": "NJH"
+      },
+      "timeout": 1000
+    }
+  },
+  "decouple_costs": true,
+  "CPFilters": [],
+  "ClientContact": {
+    "DataRequest": [
+      "snellingc@njhealth.org",
+      "gumbm@njhealth.org"
+    ]
+  },
+  "DataRequestFrequency": [
+    "Weekly"
+  ]
+}
