@@ -137,15 +137,16 @@ logger.setLevel(logging.INFO)
 
 # DBTITLE 1,Spark Functions
 def register_spark_functions():
-  spark.sql("""
-  CREATE OR REPLACE TEMPORARY FUNCTION fiscal_from_date(date_val DATE, fym INT)
-  RETURNS INT
-  RETURN CASE 
-      WHEN fym = 1 THEN YEAR(date_val)
-      WHEN MONTH(date_val) < fym THEN YEAR(date_val)
-      ELSE YEAR(date_val) + 1
-  END
-  """)
+  # 1. Resolve Path
+  BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+  FUNC_PATH = os.path.join(BASE_DIR, "functions", "fiscal_from_date.sql")
+
+  # 2. Read SQL
+  with open(FUNC_PATH, 'r') as f:
+    sql_func = f.read()
+
+  # 3. Register Function
+  spark.sql(sql_func)
 
 # COMMAND ----------
 
@@ -177,7 +178,15 @@ def process_fh(client):
   logger.warning('*** FH: Starting Proc')
 
   # Prep
-  spark.sql(f"DELETE FROM dev_catalog.metadata.etl2_status WHERE client = '{client}' AND process = 'File Health'")
+  spark.sql(f"DELETE FROM {get_metadata_table_path('etl2_status')} WHERE client = '{client}' AND process = 'File Health'")
+
+  # Clear out existing silver data to avoid lingering periods from old runs
+  for tbl_suffix in ['_fh_group', '_fh_date']:
+    try:
+      dbo_path = get_dbo_table_path(client.lower() + tbl_suffix)
+      spark.sql(f"DELETE FROM {dbo_path}")
+    except Exception as e:
+      logger.warning(f"Note: Could not clear {tbl_suffix} (it may not exist yet): {e}")
 
   # Pull which time periods we should loop through for this client
   query = f"SELECT * FROM dev_catalog.metadata.fh_report_periods WHERE client = '{client}'"
