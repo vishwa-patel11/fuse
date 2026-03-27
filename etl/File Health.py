@@ -1,4 +1,4 @@
-publish_fh# Databricks notebook source
+# Databricks notebook source
 # MAGIC %md #File Health (ETL2 Production)
 
 # COMMAND ----------
@@ -48,7 +48,7 @@ pip install fastparquet
 
 # COMMAND ----------
 
-# DBTITLE 1,Imports
+import os
 import numpy as np
 import pandas as pd
 import datetime 
@@ -135,33 +135,58 @@ logger.setLevel(logging.INFO)
 
 # COMMAND ----------
 
-# DBTITLE 1,def process_fh
+# DBTITLE 1,Spark Functions
+def register_spark_functions():
+  spark.sql("""
+  CREATE OR REPLACE TEMPORARY FUNCTION fiscal_from_date(date_val DATE, fym INT)
+  RETURNS INT
+  RETURN CASE 
+      WHEN fym = 1 THEN YEAR(date_val)
+      WHEN MONTH(date_val) < fym THEN YEAR(date_val)
+      ELSE YEAR(date_val) + 1
+  END
+  """)
+
+# COMMAND ----------
+
+# DBTITLE 1,def process_file_health
+def process_file_health(client, period):
+  """
+  Reads SQL from file, injects parameters, and executes.
+  """
+  # 1. Resolve Path
+  BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+  SQL_PATH = os.path.join(BASE_DIR, "stored_procedures", "etl2_file_health.sql")
+
+  # 2. Register Functions
+  register_spark_functions()
+  
+  # 3. Read SQL
+  with open(SQL_PATH, 'r') as f:
+    sql_template = f.read()
+  
+  # 4. Inject Parameters
+  sql_final = sql_template.format(client=client, period=period)
+  
+  # 5. Execute as a single call
+  spark.sql(sql_final)
+
+# COMMAND ----------
+
 def process_fh(client):
   logger.warning('*** FH: Starting Proc')
 
   # Prep
-  script = """
-  -- Clear the status table for this client
-  delete from etl2_status where client = '{client}' and process = 'File Health';
-
-  -- Clear out all the tables
-  drop table if exists dbo.{client}_fh_date;
-  drop table if exists dbo.{client}_fh_group;
-  """.format(client=client)
-  sql_exec_only(script)
+  spark.sql(f"DELETE FROM dev_catalog.metadata.etl2_status WHERE client = '{client}' AND process = 'File Health'")
 
   # Pull which time periods we should loop through for this client
-  query = "select * from fh_report_periods where client = '{client}'".format(client=client)
-  tbl = sql(query)
+  query = f"SELECT * FROM dev_catalog.metadata.fh_report_periods WHERE client = '{client}'"
+  tbl = spark.sql(query).toPandas()
   
   # Loop & Execute processing 
   for period in tbl['period']:
     logger.warning(period)
-    script = "exec etl2_file_health '{cl}', '{pd}'".format(cl=client,pd=period)
-    sql_exec_only(script)
-    #script = "select distinct period, report_period from dbo.{client}_fh_group".format(client=client)
-    #tmp = sql(script)
-  
+    process_file_health(client, period)
   
   logger.warning('*** FH: Proc Complete')
 
@@ -194,7 +219,7 @@ def get_fh_results(client):
   # Ingest the group file from sql
   filemap = Filemap(client.upper())
   output_file = filemap.CURATED+client+'_FH_v2024.csv'
-  query = "select * from curated.{cl}_fh_group".format(cl=client.lower())
+  query = f"SELECT * FROM {get_curated_table_path(client.lower() + '_fh_group')}"
 
   try:
     conn, params = connection(exec_method='sqlalchemy')
@@ -241,20 +266,21 @@ def publish_to_sharepoint(fh_output, output_file):
 
 def publish_fh(client):
   ### Publish to curated DB schema 
-  publish_to_curated("{cl}_fh_group".format(cl=client.lower()),drop_original=False)
-  publish_to_curated("{cl}_fh_date".format(cl=client.lower()),drop_original=False)
+  # Promote from dbo silver to curated silver using utility
+  publish_to_curated(f"{client.lower()}_fh_group", drop_original=False)
+  publish_to_curated(f"{client.lower()}_fh_date", drop_original=False)
   logger.warning('*** FH: Moved to Curated DB Schema')
 
   ### Update Data Updated date
-  script = '''
-  update max_gift_dates set file_health = fh.mx
-  from (
-  	select client, max(max_gift_date) mx
-  	from fh_report_periods 
-  	group by client
+  script = f"""
+  UPDATE {get_metadata_table_path('max_gift_dates')} SET file_health = fh.mx
+  FROM (
+  	SELECT client, MAX(end_date) as mx
+  	FROM {get_metadata_table_path('fh_report_periods')} 
+  	GROUP BY client
   ) fh
-  where max_gift_dates.client = fh.client and fh.client = '{cl}'
-  '''.format(cl=client)
+  WHERE {get_metadata_table_path('max_gift_dates')}.client = fh.client AND fh.client = '{client}'
+  """
   sql_exec_only(script, appname=client+'fh updated date') 
 
   ### Query results
@@ -285,15 +311,15 @@ else:
   # Otherwise, decide if the run should happen based on the dates
   try:
     # Get the max FH date available today and add month
-    script = 'select max(date) mx_fh_date from curated.{cl}_fh_date'.format(cl=client.lower())
-    result_fh_date = sql(script)
+    script = f"SELECT MAX(date) as mx_fh_date FROM {get_curated_table_path(client.lower() + '_fh_date')}"
+    result_fh_date = spark.sql(script).toPandas()
     current_fh_date = result_fh_date['mx_fh_date'][0]
     next_month_fh_date = result_fh_date['mx_fh_date'][0] + relativedelta(months=1)
 
 
     # Get the max processed date time from curated gift table
-    gift_script = 'select max(gift_date) mx_gift_date from curated.{cl}_gift'.format(cl=client.lower())
-    result_gift = sql(gift_script)
+    gift_script = f"SELECT MAX(gift_date) as mx_gift_date FROM {get_dbo_table_path(client.lower() + '_gift')}"
+    result_gift = spark.sql(gift_script).toPandas()
     mx_gift_date = result_gift['mx_gift_date'][0]
 
 
