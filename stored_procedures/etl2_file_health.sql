@@ -9,7 +9,7 @@
 */
 
 INSERT INTO dev_catalog.metadata.etl2_status
-SELECT UPPER('{client}'), 'File Health', '{period} - Start', current_timestamp();
+SELECT UPPER('{client}'), 'File Health', '{period} - Start', ts_est();
 
 
 -------------------------------------------------------------------
@@ -29,13 +29,13 @@ JOIN dev_catalog.metadata.client c ON a.client = c.client
 WHERE COALESCE(gift_amount, 0) > 0;
 
 INSERT INTO dev_catalog.metadata.etl2_status
-SELECT UPPER('{client}'), 'File Health', '{period} - processing_gift_history complete', current_timestamp();
+SELECT UPPER('{client}'), 'File Health', '{period} - processing_gift_history complete', ts_est();
 
 INSERT INTO dev_catalog.metadata.etl2_status
 SELECT UPPER('{client}'),
        'File Health',
        '{period} - max gift date included: ' || CAST(CAST(MAX(gift_date) AS date) AS string),
-       current_timestamp()
+       ts_est()
 FROM processing_gift_history;
 
 
@@ -72,7 +72,7 @@ GROUP BY
     END;
 
 INSERT INTO dev_catalog.metadata.etl2_status
-SELECT UPPER('{client}'), 'File Health', '{period} - processing_years complete', current_timestamp();
+SELECT UPPER('{client}'), 'File Health', '{period} - processing_years complete', ts_est();
 
 
 ---------------------------------------------------------------------------------
@@ -107,7 +107,7 @@ JOIN w_donor_ranges d
              END;
 
 INSERT INTO dev_catalog.metadata.etl2_status
-SELECT UPPER('{client}'), 'File Health', '{period} - processing_cross_donor_report_periods complete', current_timestamp();
+SELECT UPPER('{client}'), 'File Health', '{period} - processing_cross_donor_report_periods complete', ts_est();
 
 
 -------------------------------------------------------------------
@@ -164,7 +164,7 @@ FROM almost a
 JOIN dev_catalog.metadata.client c ON a.client = c.client;
 
 INSERT INTO dev_catalog.metadata.etl2_status
-SELECT UPPER('{client}'), 'File Health', '{period} - processing_fh_report_period complete', current_timestamp();
+SELECT UPPER('{client}'), 'File Health', '{period} - processing_fh_report_period complete', ts_est();
 
 
 -------------------------------------------------------
@@ -236,7 +236,7 @@ GROUP BY
     , rp.report_period_id;
 
 INSERT INTO dev_catalog.metadata.etl2_status
-SELECT UPPER('{client}'), 'File Health', '{period} - processing_relative_gift_history complete', current_timestamp();
+SELECT UPPER('{client}'), 'File Health', '{period} - processing_relative_gift_history complete', ts_est();
 
 
 -------------------------------------------------------------------
@@ -281,7 +281,7 @@ GROUP BY
     , a.report_period, a.offset;
 
 INSERT INTO dev_catalog.metadata.etl2_status
-SELECT UPPER('{client}'), 'File Health', '{period} - processing_summary complete', current_timestamp();
+SELECT UPPER('{client}'), 'File Health', '{period} - processing_summary complete', ts_est();
 
 
 -------------------------------------------------------
@@ -325,7 +325,7 @@ SELECT *
 FROM w_raw;
 
 INSERT INTO dev_catalog.metadata.etl2_status
-SELECT UPPER('{client}'), 'File Health', '{period} - processing_fh_group_by_year complete', current_timestamp();
+SELECT UPPER('{client}'), 'File Health', '{period} - processing_fh_group_by_year complete', ts_est();
 
 
 -------------------------------------------------------
@@ -336,7 +336,7 @@ SELECT UPPER('{client}'), 'File Health', '{period} - processing_fh_group_by_year
 DELETE FROM dev_catalog.{client}.dbo_{client}_fh_date_silver WHERE period = '{period}';
 
 INSERT INTO dev_catalog.{client}.dbo_{client}_fh_date_silver
-SELECT a.*, d.date, current_timestamp() as data_processed_at, a.client || '-' || date_format(d.date, 'yyyy-MM-dd') as client_date
+SELECT a.*, d.date, ts_est() as data_processed_at, a.client || '-' || date_format(d.date, 'yyyy-MM-dd') as client_date
 FROM processing_fh_report_period a
 JOIN (
     SELECT *
@@ -346,7 +346,7 @@ JOIN (
 WHERE offset > -6;
 
 INSERT INTO dev_catalog.metadata.etl2_status
-SELECT UPPER('{client}'), 'File Health', '{period} - [client]_fh_date complete', current_timestamp();
+SELECT UPPER('{client}'), 'File Health', '{period} - [client]_fh_date complete', ts_est();
 
 
 -- [client]_fh_group
@@ -355,9 +355,9 @@ DELETE FROM dev_catalog.{client}.dbo_{client}_fh_group_silver WHERE period = '{p
 INSERT INTO dev_catalog.{client}.dbo_{client}_fh_group_silver
 SELECT client, period, report_period, report_period_id, yr, donor_id,
        fh_group, fh_group_detail, donor_type, donor_subtype, past_2_years, donor_key,
-       current_timestamp() as data_processed_at
+       ts_est() as data_processed_at
 FROM processing_fh_group_by_year
 WHERE offset > -6;
 
 INSERT INTO dev_catalog.metadata.etl2_status
-SELECT UPPER('{client}'), 'File Health', '{period} - [client]_fh_group complete', current_timestamp();
+SELECT UPPER('{client}'), 'File Health', '{period} - [client]_fh_group complete', ts_est();

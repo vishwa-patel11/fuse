@@ -8,6 +8,7 @@
 # COMMAND ----------
 
 import pandas as pd
+from pyspark.sql import functions as f
 
 # COMMAND ----------
 
@@ -34,14 +35,18 @@ def add_to_error_table(client, check, dataset, error_description, fail, check_le
 # client = 'FWW'
 def query_qa_errors(client, datasets=None):
   tbl = get_metadata_table_path('etl2_qa_results')
-  qa_results = sql(f"SELECT * FROM {tbl} WHERE client = '{client}' AND fail = 1")
+  spark = _get_spark()
+  
+  # Base Spark DataFrame
+  df = spark.table(tbl).filter(f"client = '{client}' AND fail = 1")
 
-  # datasets specified
-  if datasets is not None: #datasets=['Transactions.parquet','Gift']
-    qa_results=qa_results[qa_results['dataset'].isin(datasets)]
+  # Filter by datasets if provided
+  if datasets is not None:
+    df = df.filter(df.dataset.isin(datasets))
 
-  warnings = qa_results[qa_results['check_level']=='warning']['check'].count()
-  errors = qa_results[qa_results['check_level']=='error']['check'].count()
+  # Count warnings and errors directly in Spark
+  warnings = df.filter("check_level = 'warning'").count()
+  errors = df.filter("check_level = 'error'").count()
   
   return warnings, errors
 

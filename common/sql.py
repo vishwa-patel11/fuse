@@ -105,24 +105,40 @@ def _resolve_table_path(table_name):
 def sql_exec_only(query, appname=None):
   try:
     spark = _get_spark()
-    sdf = spark.sql(query)
-    return sdf.toPandas()
+    # Split by semicolon and filter out empty statements
+    statements = [s.strip() for s in query.split(';') if s.strip()]
+    if not statements:
+      return None
+    
+    last_sdf = None
+    for stmt in statements:
+      last_sdf = spark.sql(stmt)
+    
+    # Return last result as pandas if possible
+    return last_sdf.toPandas() if last_sdf is not None else None
   except Exception as e:
-    print(repr(e))
+    print(f"Error executing SQL: {e}")
+    print(f"Query snippet: {query[:500]}...")
     raise
 
 def sql(query, exec_method='sqlalchemy', appname=None):
+  """Execute SQL query. If it contains multiple statements or is not a SELECT, uses sql_exec_only."""
   if appname is None:
     appname = query[:50]
-  if 'select' not in query.lower():
-    sql_exec_only(query, appname)
-    return None
+  
+  # Check if it's a simple SELECT or a multi-statement/DDL/DML block
+  is_select = query.strip().lower().startswith('select') or 'select' in query.lower()
+  has_multiple = ';' in query.strip().rstrip(';')
+  
+  if not is_select or has_multiple:
+    return sql_exec_only(query, appname)
+    
   try:
     spark = _get_spark()
     sdf = spark.sql(query)
     return sdf.toPandas()
   except Exception as e:
-    print(repr(e))
+    print(f"Error in sql(): {e}")
     raise
 
 # COMMAND ----------

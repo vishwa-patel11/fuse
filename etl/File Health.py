@@ -14,37 +14,37 @@
 # COMMAND ----------
 
 # DBTITLE 1,TMP: Upgrade Pandas
-pip install --upgrade pandas
+# MAGIC %pip install --upgrade pandas
 
 # COMMAND ----------
 
 # DBTITLE 1,TMP
-pip install fastparquet
+# MAGIC %pip install fastparquet
 
 # COMMAND ----------
 
 # DBTITLE 1,qa
-# MAGIC %run ../fuse/python_modules/qa
+# MAGIC %run ../common/qa
 
 # COMMAND ----------
 
 # DBTITLE 1,transfer_files
-# MAGIC %run ../python_modules/transfer_files
+# MAGIC %run ../common/transfer_files
 
 # COMMAND ----------
 
 # DBTITLE 1,utilities
-# MAGIC %run ../python_modules/utilities
+# MAGIC %run ../common/utilities
 
 # COMMAND ----------
 
 # DBTITLE 1,mount_datalake
-# MAGIC %run ../python_modules/mount_datalake
+# MAGIC %run ../common/mount_datalake
 
 # COMMAND ----------
 
 # DBTITLE 1,email
-# MAGIC %run ../python_modules/email
+# MAGIC %run ../common/email
 
 # COMMAND ----------
 
@@ -139,14 +139,15 @@ logger.setLevel(logging.INFO)
 def register_spark_functions():
   # 1. Resolve Path
   BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-  FUNC_PATH = os.path.join(BASE_DIR, "functions", "fiscal_from_date.sql")
+  FUNC_DIR = os.path.join(BASE_DIR, "functions")
 
-  # 2. Read SQL
-  with open(FUNC_PATH, 'r') as f:
-    sql_func = f.read()
-
-  # 3. Register Function
-  spark.sql(sql_func)
+  # 2. Register all .sql functions in the directory
+  for filename in os.listdir(FUNC_DIR):
+    if filename.endswith(".sql"):
+      with open(os.path.join(FUNC_DIR, filename), 'r') as f:
+        sql_func = f.read()
+        spark.sql(sql_func)
+        print(f"Registered function from {filename}")
 
 # COMMAND ----------
 
@@ -169,8 +170,8 @@ def process_file_health(client, period):
   # 4. Inject Parameters
   sql_final = sql_template.format(client=client, period=period)
   
-  # 5. Execute as a single call
-  spark.sql(sql_final)
+  # 5. Execute using multi-statement helper
+  sql_exec_only(sql_final)
 
 # COMMAND ----------
 
@@ -189,11 +190,12 @@ def process_fh(client):
       logger.warning(f"Note: Could not clear {tbl_suffix} (it may not exist yet): {e}")
 
   # Pull which time periods we should loop through for this client
-  query = f"SELECT * FROM dev_catalog.metadata.fh_report_periods WHERE client = '{client}'"
-  tbl = spark.sql(query).toPandas()
+  query = f"SELECT period FROM dev_catalog.metadata.fh_report_periods WHERE client = '{client}'"
+  rows = spark.sql(query).collect()
   
   # Loop & Execute processing 
-  for period in tbl['period']:
+  for row in rows:
+    period = row.period
     logger.warning(period)
     process_file_health(client, period)
   
@@ -205,11 +207,17 @@ def process_fh(client):
 # client = 'AFHU'
 
 def fh_qa(client):
-  etl2_status_entry(client,'FH: SP Started')
-  # Exec QA stored procedure
-  script = "exec etl2_file_health_qa @client='{cl}'".format(cl=client.lower())
-  sql_exec_only(script, appname=client+'fh qa') 
-  etl2_status_entry(client,'FH: SP Complete')
+  # 1. Resolve Path
+  BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+  QA_PATH = os.path.join(BASE_DIR, "stored_procedures", "etl2_file_health_qa.sql")
+
+  # 2. Read and Execute QA script
+  with open(QA_PATH, 'r') as f:
+    sql_template = f.read()
+  
+  sql_final = sql_template.replace('{client}', client.lower())
+  sql_exec_only(sql_final, appname=client+'fh qa') 
+  etl2_status_entry(client,'FH: QA Script Complete')
 
   # Pull qa results
   warnings, errors = query_qa_errors(client,['File Health'])
@@ -225,28 +233,25 @@ def fh_qa(client):
 # DBTITLE 1,hold: older result store
 
 def get_fh_results(client):
-  # Ingest the group file from sql
+  # Read results from curated table using Spark
   filemap = Filemap(client.upper())
-  output_file = filemap.CURATED+client+'_FH_v2024.csv'
-  query = f"SELECT * FROM {get_curated_table_path(client.lower() + '_fh_group')}"
+  output_file = filemap.CURATED + client + '_FH_v2024.csv'
+  tbl_path = get_curated_table_path(client.lower() + '_fh_group')
 
   try:
-    conn, params = connection(exec_method='sqlalchemy')
-    fh_output = pd.DataFrame(data=None)
-    df_reader = pd.read_sql(query, con=conn, chunksize=10**6) # we're using an iterator over chunks to handle performance for large datasets like MC
-    for chnk in df_reader:
-      df = pd.DataFrame(data=chnk)
-      fh_output = pd.concat([fh_output,df])
-    logger.warning('*** FH: Results imported back to python')
+    fh_output = spark.table(tbl_path)
+    logger.warning('*** FH: Results loaded from Spark table')
   except Exception as e:
     logger.warning(repr(e))
     logger.error("get_fh_results: %s", traceback.format_exc())
+    fh_output = None
   
   return fh_output, output_file
 
 def publish_to_datalake(fh_output, output_file):
   try:
-    fh_output.to_csv(output_file)
+    # Convert summary report to Pandas ONLY for final CSV export to ensure single file parity
+    fh_output.toPandas().to_csv(output_file, index=False)
     logger.warning('*** FH: Published to datalake')
   except Exception as e:
     logger.warning(repr(e))
@@ -258,8 +263,9 @@ def publish_to_sharepoint(fh_output, output_file):
   # Publish to ClientFiles sharepoint
   file_name = os.path.basename(output_file)
   try:
-    xl = file_name #.replace('.csv','.xlsx') # xlsx is pretty expensive
-    fh_output.to_csv('/tmp/'+xl) #to_excel('/tmp/'+xl)
+    xl = file_name 
+    # Convert summary report to Pandas and write to /tmp for SharePoint upload
+    fh_output.toPandas().to_csv('/tmp/'+xl, index=False)
     client_context = get_sharepoint_context("https://mindsetdirect.sharepoint.com/sites/ClientFiles")
     relative_url = '{cl}/Reporting 2.0'.format(cl=client)
     upload_to_sharepoint(client_context, relative_url, xl)
@@ -282,13 +288,14 @@ def publish_fh(client):
 
   ### Update Data Updated date
   script = f"""
-  UPDATE {get_metadata_table_path('max_gift_dates')} SET file_health = fh.mx
-  FROM (
+  MERGE INTO {get_metadata_table_path('max_gift_dates')} AS target
+  USING (
   	SELECT client, MAX(end_date) as mx
   	FROM {get_metadata_table_path('fh_report_periods')} 
   	GROUP BY client
-  ) fh
-  WHERE {get_metadata_table_path('max_gift_dates')}.client = fh.client AND fh.client = '{client}'
+  ) AS fh
+  ON target.client = fh.client AND fh.client = '{client}'
+  WHEN MATCHED THEN UPDATE SET target.file_health = fh.mx
   """
   sql_exec_only(script, appname=client+'fh updated date') 
 
@@ -321,15 +328,13 @@ else:
   try:
     # Get the max FH date available today and add month
     script = f"SELECT MAX(date) as mx_fh_date FROM {get_curated_table_path(client.lower() + '_fh_date')}"
-    result_fh_date = spark.sql(script).toPandas()
-    current_fh_date = result_fh_date['mx_fh_date'][0]
-    next_month_fh_date = result_fh_date['mx_fh_date'][0] + relativedelta(months=1)
+    current_fh_date = spark.sql(script).collect()[0][0]
+    next_month_fh_date = current_fh_date + relativedelta(months=1)
 
 
     # Get the max processed date time from curated gift table
     gift_script = f"SELECT MAX(gift_date) as mx_gift_date FROM {get_dbo_table_path(client.lower() + '_gift')}"
-    result_gift = spark.sql(gift_script).toPandas()
-    mx_gift_date = result_gift['mx_gift_date'][0]
+    mx_gift_date = spark.sql(gift_script).collect()[0][0]
 
 
     # Compare and decide if run is needed if gift max date is more than 1 month from to curated.fh_date max
